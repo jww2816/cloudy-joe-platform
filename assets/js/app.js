@@ -123,4 +123,30 @@ if (requestAccessForm) {
     requestAccessForm.reset();
     showPanel(requestConfirmationPanel);
   });
+
+
 }
+
+const lessonToggles = document.querySelectorAll(".lesson-toggle");
+
+lessonToggles.forEach(function (toggle) {
+  toggle.addEventListener("click", function () {
+    const lesson = toggle.closest(".lesson");
+
+    const content = lesson.querySelector(".lesson-content");
+    const icon = lesson.querySelector(".lesson-icon");
+
+    const isExpanded =
+      toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.setAttribute(
+      "aria-expanded",
+      String(!isExpanded)
+    );
+
+    content.hidden = !content.hidden;
+
+    icon.textContent =
+      isExpanded ? "+" : "−";
+  });
+});

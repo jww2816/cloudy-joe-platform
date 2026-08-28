@@ -320,6 +320,174 @@ p {
 }
 
 /* ------------------------------
+   Architecture
+------------------------------ */
+
+.architecture-section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.architecture-flow {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.architecture-node {
+  min-height: 180px;
+  padding: 1.5rem;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--background);
+}
+
+.architecture-node strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.architecture-label {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.architecture-arrow {
+  color: var(--accent);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.decision-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.decision-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.6fr);
+  gap: 2rem;
+
+  padding: 1.5rem;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--surface);
+}
+
+.decision-item h3 {
+  margin: 0.75rem 0 0;
+}
+
+.status-badge {
+  display: inline-block;
+
+  padding: 0.25rem 0.55rem;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-badge--accepted {
+  color: var(--success);
+}
+
+.status-badge--proposed {
+  color: var(--accent);
+}
+
+/* ------------------------------
+   Lessons Learned
+------------------------------ */
+
+.lessons-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.lesson {
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--surface);
+}
+
+.lesson-toggle {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1.25rem 1.5rem;
+
+  background: transparent;
+  color: var(--text-primary);
+
+  border: 0;
+
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.lesson-toggle:hover {
+  background: var(--surface-light);
+}
+
+.lesson-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.lesson-icon {
+  flex: 0 0 auto;
+
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.lesson-content {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.lesson-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.lesson-content[hidden] {
+  display: none;
+}
+
+/* ------------------------------
    Responsive
 ------------------------------ */
 
@@ -336,5 +504,18 @@ p {
 
   .hero {
     padding-top: 4rem;
+  }
+
+    .architecture-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .decision-item {
+    grid-template-columns: 1fr;
   }
 }
