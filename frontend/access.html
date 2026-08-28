@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Secure access portal for the Cloudy Joe engineering portfolio."
+  >
+
+  <title>Access | Cloudy Joe</title>
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/styles.css"
+  >
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+
+      <a class="brand" href="access.html">
+        Cloudy<span>Joe</span>
+      </a>
+
+      <span class="form-help">
+        Private Engineering Portfolio
+      </span>
+
+    </div>
+  </header>
+
+  <main class="access-layout">
+
+    <section class="access-card">
+
+      <p class="eyebrow">
+        Secure Portfolio Access
+      </p>
+
+      <h1>
+        Welcome
+      </h1>
+
+      <p>
+        This portfolio is intended for employers, recruiters,
+        and invited professional contacts.
+      </p>
+
+      <form id="access-form">
+
+        <div class="form-group">
+          <label for="access-code">
+            Access code
+          </label>
+
+          <input
+            id="access-code"
+            name="access-code"
+            type="text"
+            autocomplete="off"
+            placeholder="Enter your access code"
+          >
+
+          <p class="form-help">
+            Access codes will later be validated through the Cloudy Joe
+            authentication service.
+          </p>
+        </div>
+
+        <button
+          class="button button--primary"
+          type="submit"
+        >
+          Continue
+        </button>
+
+        <a
+          class="button button--secondary"
+          href="#request-access"
+        >
+          Request Access
+        </a>
+
+        <p
+          id="access-status"
+          class="status-message"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <script src="../assets/js/app.js"></script>
+
+</body>
+</html>
