@@ -8,6 +8,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Architecture and engineering decisions behind the Cloudy Joe platform."
+  >
+
   <title>Architecture | Cloudy Joe</title>
 
   <link
@@ -27,7 +32,6 @@
       </a>
 
       <nav aria-label="Primary navigation">
-
         <ul class="nav-links">
 
           <li><a href="index.html">Home</a></li>
@@ -37,7 +41,6 @@
           <li><a href="lessons.html">Lessons Learned</a></li>
 
         </ul>
-
       </nav>
 
     </div>
@@ -45,26 +48,280 @@
   </header>
 
 
-  <main class="page-section">
+  <main>
 
-    <div class="container">
+    <section class="page-section">
 
-      <p class="eyebrow">
-        Cloudy Joe
-      </p>
+      <div class="container">
 
-      <h1>
-        Architecture
-      </h1>
+        <p class="eyebrow">
+          Under the Hood
+        </p>
 
-      <p class="lead">
-        This page will be developed during a later project phase.
-      </p>
+        <h1>
+          Platform Architecture
+        </h1>
 
-    </div>
+        <p class="lead">
+          Cloudy Joe is being built as a working cloud engineering
+          portfolio. The architecture evolves in phases so each
+          technology solves a specific problem rather than being added
+          only for demonstration.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section architecture-section">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Current State
+        </p>
+
+        <h2>
+          Phase 1 Architecture
+        </h2>
+
+        <div class="architecture-flow">
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Client
+            </span>
+
+            <strong>
+              Web Browser
+            </strong>
+
+            <p>
+              Renders the frontend and handles local interaction.
+            </p>
+          </div>
+
+
+          <div
+            class="architecture-arrow"
+            aria-hidden="true"
+          >
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Application
+            </span>
+
+            <strong>
+              HTML / CSS / JavaScript
+            </strong>
+
+            <p>
+              Provides the current local application interface.
+            </p>
+          </div>
+
+
+          <div
+            class="architecture-arrow"
+            aria-hidden="true"
+          >
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Development
+            </span>
+
+            <strong>
+              Local HTTP Server
+            </strong>
+
+            <p>
+              Serves the application during local development.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Target Platform
+        </p>
+
+        <h2>
+          Planned architecture layers
+        </h2>
+
+        <div class="grid grid--3">
+
+          <article class="card">
+            <h3>
+              Edge & Delivery
+            </h3>
+
+            <p>
+              Route 53, CloudFront, TLS certificates, and web
+              application protection.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <h3>
+              Identity & Security
+            </h3>
+
+            <p>
+              Cognito, IAM, authorization rules, audit logging,
+              and least-privilege access.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <h3>
+              Application Services
+            </h3>
+
+            <p>
+              API Gateway, Lambda, DynamoDB, containerized services,
+              and future AI workflows.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <h3>
+              Infrastructure as Code
+            </h3>
+
+            <p>
+              Terraform will manage the primary platform while selected
+              components demonstrate CloudFormation.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <h3>
+              Containers
+            </h3>
+
+            <p>
+              Docker packages application services and ECR stores
+              versioned container images.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <h3>
+              Kubernetes
+            </h3>
+
+            <p>
+              EKS will later demonstrate orchestration, deployments,
+              services, health checks, and scaling.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Engineering Decisions
+        </p>
+
+        <h2>
+          Architecture Decision Records
+        </h2>
+
+        <p class="lead">
+          Major technical decisions are documented so the reasoning,
+          tradeoffs, and consequences remain visible as the platform
+          evolves.
+        </p>
+
+        <div class="decision-list">
+
+          <article class="decision-item">
+
+            <div>
+              <span class="status-badge status-badge--accepted">
+                Accepted
+              </span>
+
+              <h3>
+                ADR-001: Platform Architecture Strategy
+              </h3>
+            </div>
+
+            <p>
+              Establishes the phased architecture and the principle
+              that each technology must solve a defined problem.
+            </p>
+
+          </article>
+
+
+          <article class="decision-item">
+
+            <div>
+              <span class="status-badge status-badge--proposed">
+                Proposed
+              </span>
+
+              <h3>
+                ADR-002: Authentication Strategy
+              </h3>
+            </div>
+
+            <p>
+              Defines the initial direction for private portfolio
+              access using managed identity and an approval workflow.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
+
+  <footer class="site-footer">
+
+    <div class="container">
+      Cloudy Joe Engineering Portfolio
+    </div>
+
+  </footer>
 
   <script src="../assets/js/app.js"></script>
 

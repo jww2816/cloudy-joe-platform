@@ -8,7 +8,12 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Lessons | Cloudy Joe</title>
+  <meta
+    name="description"
+    content="Engineering lessons learned while building the Cloudy Joe platform."
+  >
+
+  <title>Lessons Learned | Cloudy Joe</title>
 
   <link
     rel="stylesheet"
@@ -27,7 +32,6 @@
       </a>
 
       <nav aria-label="Primary navigation">
-
         <ul class="nav-links">
 
           <li><a href="index.html">Home</a></li>
@@ -37,7 +41,6 @@
           <li><a href="lessons.html">Lessons Learned</a></li>
 
         </ul>
-
       </nav>
 
     </div>
@@ -45,26 +48,284 @@
   </header>
 
 
-  <main class="page-section">
+  <main>
 
-    <div class="container">
+    <section class="page-section">
 
-      <p class="eyebrow">
-        Cloudy Joe
-      </p>
+      <div class="container">
 
-      <h1>
-        Lessons
-      </h1>
+        <p class="eyebrow">
+          Engineering Journal
+        </p>
 
-      <p class="lead">
-        This page will be developed during a later project phase.
-      </p>
+        <h1>
+          Lessons Learned
+        </h1>
 
-    </div>
+        <p class="lead">
+          Cloudy Joe documents not only what was built, but the
+          mistakes, tradeoffs, and architectural decisions encountered
+          along the way.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section">
+
+      <div class="container lessons-list">
+
+
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>
+              Why frontend validation is not security
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>
+              Initial approach
+            </h3>
+
+            <p>
+              The local access prototype validates form fields with
+              HTML and JavaScript before allowing the workflow to
+              continue.
+            </p>
+
+            <h3>
+              Limitation
+            </h3>
+
+            <p>
+              Client-side code runs on a system controlled by the
+              visitor. JavaScript validation can be modified or
+              bypassed completely.
+            </p>
+
+            <h3>
+              Lesson
+            </h3>
+
+            <p>
+              Frontend validation improves user experience, but a
+              trusted backend must independently validate all data
+              before making security or business decisions.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>
+              Authentication and authorization solve different problems
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>
+              Authentication
+            </h3>
+
+            <p>
+              Authentication establishes who a user is.
+            </p>
+
+            <h3>
+              Authorization
+            </h3>
+
+            <p>
+              Authorization determines what an authenticated user is
+              allowed to access or perform.
+            </p>
+
+            <h3>
+              Lesson
+            </h3>
+
+            <p>
+              A successful login does not automatically mean the user
+              should have unrestricted access to application resources.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>
+              Add technology only when it solves a problem
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>
+              Temptation
+            </h3>
+
+            <p>
+              A portfolio project can easily become a collection of
+              technologies added solely because they look valuable on
+              a resume.
+            </p>
+
+            <h3>
+              Design principle
+            </h3>
+
+            <p>
+              Cloudy Joe introduces new tools only when the platform
+              creates a requirement they are intended to solve.
+            </p>
+
+            <h3>
+              Lesson
+            </h3>
+
+            <p>
+              Understanding why a technology is appropriate is more
+              valuable than simply demonstrating that it can be
+              installed or configured.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>
+              Build complex systems incrementally
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>
+              Approach
+            </h3>
+
+            <p>
+              The platform begins as a local frontend before adding
+              hosting, authentication, APIs, infrastructure as code,
+              containers, Kubernetes, and AI.
+            </p>
+
+            <h3>
+              Benefit
+            </h3>
+
+            <p>
+              Each layer can be understood and tested independently.
+              Failures are easier to isolate because fewer components
+              change at once.
+            </p>
+
+            <h3>
+              Lesson
+            </h3>
+
+            <p>
+              Incremental architecture reduces complexity while making
+              technical decisions easier to understand and document.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
 
   </main>
 
+
+  <footer class="site-footer">
+
+    <div class="container">
+      Cloudy Joe Engineering Portfolio
+    </div>
+
+  </footer>
 
   <script src="../assets/js/app.js"></script>
 
