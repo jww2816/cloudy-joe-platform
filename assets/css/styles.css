@@ -269,7 +269,8 @@ p {
   font-weight: 600;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 0.85rem 1rem;
 
@@ -278,11 +279,22 @@ p {
 
   border: 1px solid var(--border);
   border-radius: 8px;
+
+  font: inherit;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.access-panel[hidden] {
+  display: none;
 }
 
 .form-help {

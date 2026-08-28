@@ -37,65 +37,214 @@
     </div>
   </header>
 
+
   <main class="access-layout">
 
     <section class="access-card">
 
-      <p class="eyebrow">
-        Secure Portfolio Access
-      </p>
+      <div
+        id="access-code-panel"
+        class="access-panel"
+      >
+        <p class="eyebrow">
+          Secure Portfolio Access
+        </p>
 
-      <h1>
-        Welcome
-      </h1>
+        <h1>
+          Welcome
+        </h1>
 
-      <p>
-        This portfolio is intended for employers, recruiters,
-        and invited professional contacts.
-      </p>
+        <p>
+          This portfolio is intended for employers, recruiters,
+          and invited professional contacts.
+        </p>
 
-      <form id="access-form">
+        <form id="access-form">
 
-        <div class="form-group">
-          <label for="access-code">
-            Access code
-          </label>
+          <div class="form-group">
+            <label for="access-code">
+              Access code
+            </label>
 
-          <input
-            id="access-code"
-            name="access-code"
-            type="text"
-            autocomplete="off"
-            placeholder="Enter your access code"
-          >
+            <input
+              id="access-code"
+              name="access-code"
+              type="text"
+              autocomplete="off"
+              placeholder="Enter your access code"
+              required
+            >
 
-          <p class="form-help">
-            Access codes will later be validated through the Cloudy Joe
-            authentication service.
-          </p>
-        </div>
+            <p class="form-help">
+              Access codes will later be validated by the Cloudy Joe
+              authentication service.
+            </p>
+          </div>
+
+          <div class="button-group">
+
+            <button
+              class="button button--primary"
+              type="submit"
+            >
+              Continue
+            </button>
+
+            <button
+              id="show-request-access"
+              class="button button--secondary"
+              type="button"
+            >
+              Request Access
+            </button>
+
+          </div>
+
+          <p
+            id="access-status"
+            class="status-message"
+            aria-live="polite"
+          ></p>
+
+        </form>
+      </div>
+
+
+      <div
+        id="request-access-panel"
+        class="access-panel"
+        hidden
+      >
+        <p class="eyebrow">
+          Request Access
+        </p>
+
+        <h2>
+          Request portfolio access
+        </h2>
+
+        <p>
+          Submit your information below. In a later phase, this
+          request will be sent to a backend approval workflow.
+        </p>
+
+        <form id="request-access-form">
+
+          <div class="form-group">
+            <label for="request-name">
+              Name
+            </label>
+
+            <input
+              id="request-name"
+              name="request-name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="request-email">
+              Email
+            </label>
+
+            <input
+              id="request-email"
+              name="request-email"
+              type="email"
+              autocomplete="email"
+              placeholder="name@company.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="request-company">
+              Company
+            </label>
+
+            <input
+              id="request-company"
+              name="request-company"
+              type="text"
+              autocomplete="organization"
+              placeholder="Company name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="request-reason">
+              Reason for access
+            </label>
+
+            <textarea
+              id="request-reason"
+              name="request-reason"
+              rows="4"
+              placeholder="Recruiting, hiring, professional networking..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="button-group">
+
+            <button
+              class="button button--primary"
+              type="submit"
+            >
+              Submit Request
+            </button>
+
+            <button
+              id="cancel-request-access"
+              class="button button--secondary"
+              type="button"
+            >
+              Back
+            </button>
+
+          </div>
+
+          <p
+            id="request-status"
+            class="status-message"
+            aria-live="polite"
+          ></p>
+
+        </form>
+      </div>
+
+
+      <div
+        id="request-confirmation-panel"
+        class="access-panel"
+        hidden
+      >
+        <p class="eyebrow">
+          Request Received
+        </p>
+
+        <h2>
+          Thank you
+        </h2>
+
+        <p>
+          Your request has been recorded by the local prototype.
+          A future AWS workflow will handle notification, approval,
+          and access provisioning.
+        </p>
 
         <button
-          class="button button--primary"
-          type="submit"
-        >
-          Continue
-        </button>
-
-        <a
+          id="return-to-access"
           class="button button--secondary"
-          href="#request-access"
+          type="button"
         >
-          Request Access
-        </a>
-
-        <p
-          id="access-status"
-          class="status-message"
-          aria-live="polite"
-        ></p>
-
-      </form>
+          Return to Access
+        </button>
+      </div>
 
     </section>
 
