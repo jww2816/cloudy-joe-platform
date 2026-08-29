@@ -8,6 +8,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Projects and engineering roadmap for the Cloudy Joe platform."
+  >
+
   <title>Projects | Cloudy Joe</title>
 
   <link
@@ -27,7 +32,6 @@
       </a>
 
       <nav aria-label="Primary navigation">
-
         <ul class="nav-links">
 
           <li><a href="index.html">Home</a></li>
@@ -37,7 +41,6 @@
           <li><a href="lessons.html">Lessons Learned</a></li>
 
         </ul>
-
       </nav>
 
     </div>
@@ -45,26 +48,283 @@
   </header>
 
 
-  <main class="page-section">
+  <main>
 
-    <div class="container">
+    <section class="page-section">
 
-      <p class="eyebrow">
-        Cloudy Joe
-      </p>
+      <div class="container">
 
-      <h1>
-        Projects
-      </h1>
+        <p class="eyebrow">
+          Lab & Roadmap
+        </p>
 
-      <p class="lead">
-        This page will be developed during a later project phase.
-      </p>
+        <h1>
+          Projects
+        </h1>
 
-    </div>
+        <p class="lead">
+          Cloudy Joe is built incrementally. This page tracks completed
+          work, active development, and planned engineering capabilities.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section page-section--compact">
+
+      <div class="container">
+
+        <div class="project-filter" aria-label="Project status legend">
+
+          <span class="status-badge status-badge--completed">
+            Completed
+          </span>
+
+          <span class="status-badge status-badge--progress">
+            In Progress
+          </span>
+
+          <span class="status-badge status-badge--planned">
+            Planned
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="page-section">
+
+      <div class="container">
+
+        <div class="project-grid">
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--progress">
+                In Progress
+              </span>
+
+              <span class="project-phase">
+                Phase 1
+              </span>
+
+            </div>
+
+            <h2>
+              Application Foundation
+            </h2>
+
+            <p>
+              Established the repository, Git workflow, frontend
+              application shell, local development server, architecture
+              documentation, and technical storytelling components.
+            </p>
+
+            <ul class="project-tech">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>ADRs</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--progress">
+                In Progress
+              </span>
+
+              <span class="project-phase">
+                Phase 2
+              </span>
+
+            </div>
+
+            <h2>
+              AWS Frontend Hosting
+            </h2>
+
+            <p>
+              Deploy the frontend using AWS services with HTTPS,
+              private origin access, DNS, caching, and secure content
+              delivery.
+            </p>
+
+            <ul class="project-tech">
+              <li>S3</li>
+              <li>CloudFront</li>
+              <li>Route 53</li>
+              <li>ACM</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--planned">
+                Planned
+              </span>
+
+              <span class="project-phase">
+                Phase 3
+              </span>
+
+            </div>
+
+            <h2>
+              Private Authentication
+            </h2>
+
+            <p>
+              Replace the local access prototype with managed identity,
+              invitation workflows, request approval, and secure session
+              handling.
+            </p>
+
+            <ul class="project-tech">
+              <li>Cognito</li>
+              <li>IAM</li>
+              <li>API Gateway</li>
+              <li>Lambda</li>
+              <li>DynamoDB</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--planned">
+                Planned
+              </span>
+
+              <span class="project-phase">
+                Phase 5
+              </span>
+
+            </div>
+
+            <h2>
+              Infrastructure as Code
+            </h2>
+
+            <p>
+              Define and reproduce the platform declaratively rather
+              than relying on manual console configuration.
+            </p>
+
+            <ul class="project-tech">
+              <li>Terraform</li>
+              <li>CloudFormation</li>
+              <li>Remote State</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--planned">
+                Planned
+              </span>
+
+              <span class="project-phase">
+                Phase 7–8
+              </span>
+
+            </div>
+
+            <h2>
+              Container Platform
+            </h2>
+
+            <p>
+              Package a real backend service with Docker and evolve
+              deployment from managed containers into Kubernetes.
+            </p>
+
+            <ul class="project-tech">
+              <li>Docker</li>
+              <li>ECR</li>
+              <li>ECS</li>
+              <li>EKS</li>
+              <li>Kubernetes</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <span class="status-badge status-badge--planned">
+                Planned
+              </span>
+
+              <span class="project-phase">
+                Phase 9
+              </span>
+
+            </div>
+
+            <h2>
+              AI Portfolio Assistant
+            </h2>
+
+            <p>
+              Build an AI-enabled assistant capable of answering
+              questions about the portfolio using controlled project and
+              resume knowledge.
+            </p>
+
+            <ul class="project-tech">
+              <li>Amazon Bedrock</li>
+              <li>Agent Workflows</li>
+              <li>RAG</li>
+              <li>Observability</li>
+            </ul>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
+
+  <footer class="site-footer">
+
+    <div class="container">
+      Cloudy Joe Engineering Portfolio
+    </div>
+
+  </footer>
 
   <script src="../assets/js/app.js"></script>
 

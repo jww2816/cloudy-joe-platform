@@ -488,6 +488,165 @@ p {
 }
 
 /* ------------------------------
+   Resume
+------------------------------ */
+
+.resume-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.resume-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 230px;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.35fr) minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.resume-sidebar {
+  border-right: 1px solid var(--border);
+  padding-right: 2rem;
+}
+
+.resume-block + .resume-block {
+  margin-top: 2.5rem;
+}
+
+.skill-list,
+.simple-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.experience-item {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-heading h2 {
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+}
+
+.experience-company {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.experience-date {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.experience-item ul {
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+}
+
+/* ------------------------------
+   Projects / Roadmap
+------------------------------ */
+
+.project-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--surface);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-card h2 {
+  font-size: 1.4rem;
+}
+
+.project-phase {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+
+.project-tech li {
+  padding: 0.3rem 0.6rem;
+
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.status-badge--completed {
+  color: var(--success);
+}
+
+.status-badge--progress {
+  color: var(--accent);
+}
+
+.status-badge--planned {
+  color: var(--text-muted);
+}
+
+/* ------------------------------
    Responsive
 ------------------------------ */
 
@@ -516,6 +675,33 @@ p {
   }
 
   .decision-item {
+    grid-template-columns: 1fr;
+  }
+
+    .resume-header {
+    flex-direction: column;
+  }
+
+  .resume-actions {
+    width: 100%;
+  }
+
+  .resume-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+
+  .experience-heading {
+    flex-direction: column;
+  }
+  
+    .project-grid {
     grid-template-columns: 1fr;
   }
 }
