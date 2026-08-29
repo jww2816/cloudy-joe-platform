@@ -647,6 +647,52 @@ p {
 }
 
 /* ------------------------------
+   Homepage
+------------------------------ */
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--accent-hover);
+}
+
+.platform-status {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.status-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.status-item {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1.25rem 1.5rem;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--background);
+}
+
+.status-item strong {
+  color: var(--accent);
+}
+
+/* ------------------------------
    Responsive
 ------------------------------ */
 
@@ -702,6 +748,10 @@ p {
   }
   
     .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+    .status-item {
     grid-template-columns: 1fr;
   }
 }
