@@ -27,3 +27,6 @@ Thumbs.db
 
 # Build / deployment output
 dist/
+
+# Internal Review Docs
+docs/review docs/
