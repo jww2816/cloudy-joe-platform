@@ -17,7 +17,7 @@
 
   <link
     rel="stylesheet"
-    href="assets/css/styles.css"
+    href="../assets/css/styles.css"
   >
 </head>
 
@@ -311,6 +311,58 @@
 
         </article>
 
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+
+            <span>
+              Updating S3 does not automatically update CloudFront
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+          </button>
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>Observation</h3>
+
+            <p>
+              Uploading a new frontend file to the S3 origin does not
+              guarantee that visitors immediately receive the new version.
+              CloudFront may still have the previous object cached.
+            </p>
+
+            <h3>Resolution</h3>
+
+            <p>
+              CloudFront invalidation can remove cached content before its
+              normal expiration, causing a later request to retrieve the
+              updated object from S3.
+            </p>
+
+            <h3>Lesson</h3>
+
+            <p>
+              Updating the origin and updating the content delivered by a CDN
+              are separate parts of the deployment process.
+            </p>
+
+          </div>
+
+        </article>
 
       </div>
 
@@ -327,7 +379,7 @@
 
   </footer>
 
-  <script src="assets/js/app.js"></script>
+  <script src="../assets/js/app.js"></script>
 
 </body>
 </html>
