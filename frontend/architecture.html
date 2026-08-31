@@ -1,703 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Explore the architecture behind Cloudy Joe, including AWS Route 53, CloudFront, Origin Access Control, private Amazon S3 hosting, and the platform roadmap."
-    >
+  <meta
+    name="description"
+    content="Explore the current AWS architecture behind Cloudy Joe, including Route 53, CloudFront, Origin Access Control, private Amazon S3 hosting, and the platform roadmap."
+  >
 
-    <title>Architecture | Cloudy Joe</title>
+  <title>Architecture | Cloudy Joe</title>
 
-    <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <nav class="site-nav" aria-label="Primary navigation">
+  <header class="site-header">
+    <div class="container">
 
-                <a class="site-logo" href="index.html">
-                    Cloudy Joe
-                </a>
+      <nav class="nav" aria-label="Primary navigation">
 
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="resume.html">Resume</a>
-                    <a href="architecture.html" aria-current="page">Architecture</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="lessons.html">Lessons</a>
-                    <a href="access.html">Access</a>
-                </div>
+        <a class="brand" href="index.html">
+          Cloudy <span>Joe</span>
+        </a>
 
-            </nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="architecture.html" aria-current="page">Architecture</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="lessons.html">Lessons</a></li>
+          <li><a href="access.html">Access</a></li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            Under the Hood
+          </p>
+
+          <h1>Platform Architecture</h1>
+
+          <p class="lead">
+            Cloudy Joe is being built as a hands-on cloud engineering
+            platform rather than a traditional static resume site.
+            Each phase introduces infrastructure only when it solves
+            a defined technical problem.
+          </p>
+
         </div>
-    </header>
 
+      </div>
+    </section>
 
-    <main>
 
-        <!-- =========================================================
-             HERO
-        ========================================================== -->
+    <!-- ========================================
+         CURRENT ARCHITECTURE
+    ========================================= -->
 
-        <section class="page-section">
-            <div class="container">
+    <section class="page-section architecture-section">
+      <div class="container">
 
-                <p class="eyebrow">
-                    Under the Hood
-                </p>
+        <p class="eyebrow">
+          Current State
+        </p>
 
-                <h1>Platform Architecture</h1>
+        <h2>Phase 2 AWS Frontend Architecture</h2>
 
-                <p class="section-intro">
-                    Cloudy Joe is being developed as a hands-on cloud engineering
-                    platform rather than a traditional static resume site.
-                    Each phase introduces infrastructure only when it solves a
-                    defined technical problem.
-                </p>
+        <p class="lead">
+          The production frontend is now hosted in AWS and delivered
+          through CloudFront while the Amazon S3 origin remains private.
+        </p>
 
-            </div>
-        </section>
 
+        <div class="architecture-flow">
 
-        <!-- =========================================================
-             CURRENT ARCHITECTURE
-        ========================================================== -->
+          <div class="architecture-node">
+            <span class="architecture-label">
+              DNS
+            </span>
 
-        <section class="page-section">
-            <div class="container">
+            <h3>Amazon Route 53</h3>
 
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Current State
-                    </p>
-
-                    <h2>Phase 2 Architecture</h2>
-
-                    <p>
-                        The production frontend is now hosted in AWS and delivered
-                        through CloudFront while the S3 origin remains private.
-                    </p>
-                </div>
-
-
-                <div class="architecture-flow">
-
-                    <div class="architecture-node">
-                        <h3>Internet</h3>
-                        <p>
-                            Visitors connect to the public Cloudy Joe domain.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Amazon Route 53</h3>
-                        <p>
-                            Provides DNS routing for
-                            <strong>cloudy-joe.com</strong> and
-                            <strong>www.cloudy-joe.com</strong>.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Amazon CloudFront</h3>
-                        <p>
-                            Provides HTTPS delivery, global edge caching,
-                            compression, HTTP-to-HTTPS redirection, and
-                            response security headers.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Origin Access Control</h3>
-                        <p>
-                            CloudFront signs requests to Amazon S3 so the
-                            frontend origin does not need to be publicly
-                            accessible.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Private Amazon S3</h3>
-                        <p>
-                            Stores the production HTML, CSS, JavaScript,
-                            and static frontend assets with public access
-                            blocked.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             CURRENT AWS SERVICES
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        AWS Services
-                    </p>
-
-                    <h2>What Each Service Solves</h2>
-
-                    <p>
-                        Every service in the current architecture has a specific
-                        responsibility rather than being included simply to
-                        increase the number of technologies used.
-                    </p>
-                </div>
-
-
-                <div class="card-grid">
-
-                    <article class="card">
-                        <h3>Amazon Route 53</h3>
-
-                        <p>
-                            Provides DNS for the Cloudy Joe domain and routes
-                            production traffic to CloudFront.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: domain name resolution and application
-                            traffic routing.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>Amazon CloudFront</h3>
-
-                        <p>
-                            Serves the frontend through AWS edge locations and
-                            provides the public delivery layer for the platform.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: secure HTTPS delivery, caching,
-                            performance, and controlled access to the origin.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>AWS Certificate Manager</h3>
-
-                        <p>
-                            Provides the TLS certificate used by CloudFront for
-                            the custom Cloudy Joe domains.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: encrypted HTTPS communication and
-                            trusted certificate management.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>Amazon S3</h3>
-
-                        <p>
-                            Stores the production frontend deployment artifact
-                            including HTML, CSS, JavaScript, and images.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: durable and inexpensive storage for
-                            static application assets.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>Origin Access Control</h3>
-
-                        <p>
-                            Allows CloudFront to securely retrieve objects from
-                            the private S3 bucket using signed requests.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: preventing users from bypassing
-                            CloudFront and directly accessing the S3 origin.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>CloudFront Security Headers</h3>
-
-                        <p>
-                            A managed response headers policy adds browser-facing
-                            security protections at the CloudFront edge.
-                        </p>
-
-                        <p class="text-muted">
-                            Problem solved: improving browser security without
-                            requiring the static application to generate headers
-                            itself.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             SECURITY MODEL
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Security
-                    </p>
-
-                    <h2>Private Origin Architecture</h2>
-                </div>
-
-
-                <div class="card-grid">
-
-                    <article class="card">
-                        <h3>Public Delivery Layer</h3>
-
-                        <p>
-                            CloudFront is currently the public-facing entry point
-                            for the portfolio.
-                        </p>
-
-                        <p>
-                            Visitors retrieve site content through CloudFront,
-                            not directly from Amazon S3.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>Private Storage Layer</h3>
-
-                        <p>
-                            S3 Block Public Access remains enabled and static
-                            website hosting is disabled.
-                        </p>
-
-                        <p>
-                            Direct anonymous requests to the S3 object URLs are
-                            denied.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>Least-Privilege Access</h3>
-
-                        <p>
-                            The S3 bucket policy grants CloudFront only the
-                            permissions necessary to retrieve frontend objects.
-                        </p>
-
-                        <p>
-                            Access is restricted to the designated CloudFront
-                            distribution.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             DEPLOYMENT FLOW
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Deployment
-                    </p>
-
-                    <h2>Current Frontend Delivery Workflow</h2>
-
-                    <p>
-                        Phase 2 introduced a separation between application source
-                        code and the artifact that is actually deployed.
-                    </p>
-                </div>
-
-
-                <div class="architecture-flow">
-
-                    <div class="architecture-node">
-                        <h3>Git Source</h3>
-                        <p>
-                            Frontend source remains organized under the repository's
-                            frontend and assets directories.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Build Script</h3>
-                        <p>
-                            A PowerShell build script creates a clean deployment
-                            artifact from the frontend source.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>dist/</h3>
-                        <p>
-                            Contains only the files required to serve the production
-                            website.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Amazon S3</h3>
-                        <p>
-                            The deployment artifact is currently uploaded to the
-                            private frontend bucket.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>CloudFront</h3>
-                        <p>
-                            Cached content is refreshed when necessary using
-                            CloudFront invalidations.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             ARCHITECTURE EVOLUTION
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Evolution
-                    </p>
-
-                    <h2>How the Platform Is Growing</h2>
-                </div>
-
-
-                <div class="card-grid">
-
-                    <article class="card">
-                        <span class="status-badge status-completed">
-                            Completed
-                        </span>
-
-                        <h3>Phase 1 — Application Foundation</h3>
-
-                        <p>
-                            Built the frontend application, Git workflow,
-                            architectural decision records, project roadmap,
-                            lessons system, and repeatable development structure.
-                        </p>
-
-                        <p class="text-muted">
-                            Browser → Local HTTP Server → HTML / CSS / JavaScript
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <span class="status-badge status-completed">
-                            Completed
-                        </span>
-
-                        <h3>Phase 2 — AWS Frontend Hosting</h3>
-
-                        <p>
-                            Deployed the frontend to AWS using Route 53,
-                            CloudFront, ACM, Origin Access Control, and a private
-                            S3 origin.
-                        </p>
-
-                        <p class="text-muted">
-                            Route 53 → CloudFront → OAC → Private S3
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <span class="status-badge status-progress">
-                            In Progress
-                        </span>
-
-                        <h3>Phase 3 — Private Authentication</h3>
-
-                        <p>
-                            Add managed identity and an access workflow so the
-                            portfolio can become intentionally private rather than
-                            simply using a public static frontend.
-                        </p>
-
-                        <p class="text-muted">
-                            Planned focus: Amazon Cognito, IAM, API Gateway,
-                            Lambda, and DynamoDB.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <span class="status-badge status-planned">
-                            Planned
-                        </span>
-
-                        <h3>Phase 4 — Application APIs</h3>
-
-                        <p>
-                            Introduce backend application functionality, persistent
-                            data, serverless APIs, and observability.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <span class="status-badge status-planned">
-                            Planned
-                        </span>
-
-                        <h3>Phase 5 — Infrastructure as Code</h3>
-
-                        <p>
-                            Recreate and manage infrastructure using Terraform,
-                            with CloudFormation used selectively where it provides
-                            an AWS-native learning opportunity.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <span class="status-badge status-planned">
-                            Planned
-                        </span>
-
-                        <h3>Later Phases</h3>
-
-                        <p>
-                            CI/CD, security automation, Docker, Amazon ECR,
-                            Kubernetes, Amazon EKS, and an AI-powered portfolio
-                            assistant will be introduced as the platform expands.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             ARCHITECTURE DECISIONS
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Engineering Decisions
-                    </p>
-
-                    <h2>Architecture Decision Records</h2>
-
-                    <p>
-                        Major design choices are documented so the project records
-                        not only what was built, but why each approach was chosen.
-                    </p>
-                </div>
-
-
-                <div class="card-grid">
-
-                    <article class="card">
-                        <h3>ADR-001</h3>
-
-                        <p>
-                            Platform architecture and the principle that every
-                            technology must solve a defined problem.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>ADR-002</h3>
-
-                        <p>
-                            Authentication strategy favoring a managed identity
-                            provider rather than a custom password system.
-                        </p>
-                    </article>
-
-
-                    <article class="card">
-                        <h3>ADR-003</h3>
-
-                        <p>
-                            AWS frontend hosting using CloudFront, Origin Access
-                            Control, private Amazon S3, Route 53, and ACM.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =========================================================
-             NEXT ARCHITECTURE
-        ========================================================== -->
-
-        <section class="page-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">
-                        Next Architecture
-                    </p>
-
-                    <h2>Phase 3 — Identity & Access</h2>
-
-                    <p>
-                        The next phase will move the platform beyond origin
-                        security and begin controlling which users are allowed
-                        to access the portfolio.
-                    </p>
-                </div>
-
-
-                <div class="architecture-flow">
-
-                    <div class="architecture-node">
-                        <h3>Recruiter</h3>
-                        <p>
-                            Visits the Cloudy Joe access experience through a
-                            direct link or QR code.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Access Workflow</h3>
-                        <p>
-                            Invitation and access-request workflows will determine
-                            how users enter the protected application.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Managed Identity</h3>
-                        <p>
-                            Amazon Cognito is the leading authentication service
-                            for the next phase.
-                        </p>
-                    </div>
-
-                    <div class="architecture-arrow" aria-hidden="true">
-                        ↓
-                    </div>
-
-                    <div class="architecture-node">
-                        <h3>Authenticated Portfolio</h3>
-                        <p>
-                            Authorized users will gain access to protected
-                            portfolio capabilities.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <footer class="site-footer">
-        <div class="container">
+            <strong>
+              cloudy-joe.com
+            </strong>
 
             <p>
-                Cloudy Joe is an evolving cloud engineering portfolio built
-                to demonstrate architecture, infrastructure, security, and
-                software engineering concepts through hands-on implementation.
+              Provides DNS for the Cloudy Joe domain and routes
+              production traffic to Amazon CloudFront.
             </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Delivery
+            </span>
+
+            <h3>Amazon CloudFront</h3>
+
+            <strong>
+              HTTPS + CDN
+            </strong>
+
+            <p>
+              Provides HTTPS delivery, global edge caching,
+              compression, HTTP-to-HTTPS redirection, and managed
+              response security headers.
+            </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Origin
+            </span>
+
+            <h3>Private Amazon S3</h3>
+
+            <strong>
+              OAC Protected
+            </strong>
+
+            <p>
+              Stores the production HTML, CSS, JavaScript, and
+              static assets. Public access is blocked and CloudFront
+              retrieves objects using Origin Access Control.
+            </p>
+          </div>
 
         </div>
-    </footer>
+
+      </div>
+    </section>
 
 
-    <script src="../assets/js/app.js"></script>
+    <!-- ========================================
+         AWS SERVICES
+    ========================================= -->
+
+    <section class="page-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          AWS Services
+        </p>
+
+        <h2>What Each Service Solves</h2>
+
+        <p class="lead">
+          Every service in the current architecture has a defined
+          responsibility rather than being included simply to add
+          another technology to the stack.
+        </p>
+
+
+        <div class="grid grid--3">
+
+          <article class="card">
+
+            <h3>Amazon Route 53</h3>
+
+            <p>
+              Provides DNS for the custom Cloudy Joe domain and
+              routes application traffic to CloudFront.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              domain name resolution and traffic routing.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Amazon CloudFront</h3>
+
+            <p>
+              Acts as the public delivery layer for the frontend
+              and serves content through AWS edge locations.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              HTTPS delivery, CDN caching, performance, and a
+              controlled entry point to the application.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>AWS Certificate Manager</h3>
+
+            <p>
+              Provides the TLS certificate used by CloudFront for
+              cloudy-joe.com and www.cloudy-joe.com.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              encrypted HTTPS communication and managed
+              certificate lifecycle.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Amazon S3</h3>
+
+            <p>
+              Stores the production deployment artifact including
+              HTML, CSS, JavaScript, and static assets.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              durable and cost-effective storage for the frontend.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Origin Access Control</h3>
+
+            <p>
+              Allows CloudFront to securely retrieve objects from
+              the private S3 bucket using signed requests.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              preventing users from bypassing CloudFront and
+              directly accessing the S3 origin.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Security Headers</h3>
+
+            <p>
+              CloudFront applies a managed response headers policy
+              to improve browser-facing security.
+            </p>
+
+            <p>
+              <strong>Problem solved:</strong>
+              adding browser security protections without requiring
+              the static application itself to generate HTTP headers.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         SECURITY MODEL
+    ========================================= -->
+
+    <section class="page-section architecture-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          Security Model
+        </p>
+
+        <h2>Private Origin Architecture</h2>
+
+        <p class="lead">
+          CloudFront is the public-facing delivery layer. The S3
+          bucket itself is not exposed directly to the internet.
+        </p>
+
+
+        <div class="grid grid--3">
+
+          <article class="card">
+
+            <h3>Public Delivery Layer</h3>
+
+            <p>
+              Visitors access the portfolio through CloudFront using
+              the Cloudy Joe custom domain.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Private Storage Layer</h3>
+
+            <p>
+              S3 Block Public Access remains enabled and S3 static
+              website hosting is disabled.
+            </p>
+
+            <p>
+              Anonymous direct requests to S3 objects are denied.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>Least-Privilege Access</h3>
+
+            <p>
+              The S3 bucket policy grants CloudFront only the access
+              required to retrieve frontend objects.
+            </p>
+
+            <p>
+              Access is restricted to the designated CloudFront
+              distribution.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         DEPLOYMENT WORKFLOW
+    ========================================= -->
+
+    <section class="page-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          Deployment
+        </p>
+
+        <h2>Current Frontend Workflow</h2>
+
+        <p class="lead">
+          Phase 2 introduced a clear separation between source code
+          and the artifact that is deployed to AWS.
+        </p>
+
+
+        <div class="architecture-flow">
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Source
+            </span>
+
+            <h3>Git Repository</h3>
+
+            <strong>
+              frontend/ + assets/
+            </strong>
+
+            <p>
+              Contains the source-controlled frontend application.
+            </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Build
+            </span>
+
+            <h3>PowerShell Build Script</h3>
+
+            <strong>
+              build-frontend.ps1
+            </strong>
+
+            <p>
+              Creates a clean deployment artifact and prepares asset
+              paths for production hosting.
+            </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Deploy
+            </span>
+
+            <h3>dist/ → Amazon S3</h3>
+
+            <strong>
+              CloudFront Delivery
+            </strong>
+
+            <p>
+              The generated artifact is uploaded to the private S3
+              bucket and delivered through CloudFront.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         PLATFORM PROGRESS
+    ========================================= -->
+
+    <section class="page-section architecture-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          Platform Progress
+        </p>
+
+        <h2>Architecture Evolution</h2>
+
+        <p class="lead">
+          The platform is being built incrementally so each phase
+          introduces a new technical capability with a clear purpose.
+        </p>
+
+
+        <div class="project-grid">
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <div>
+                <span class="project-phase">
+                  Phase 1
+                </span>
+
+                <h2>Application Foundation</h2>
+              </div>
+
+              <span class="status-badge status-badge--completed">
+                Completed
+              </span>
+
+            </div>
+
+            <p>
+              Built the frontend shell, Git workflow, architecture
+              decision records, resume experience, project roadmap,
+              access prototype, and lessons-learned system.
+            </p>
+
+            <ul class="project-tech">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>ADRs</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <div>
+                <span class="project-phase">
+                  Phase 2
+                </span>
+
+                <h2>AWS Frontend Hosting</h2>
+              </div>
+
+              <span class="status-badge status-badge--completed">
+                Completed
+              </span>
+
+            </div>
+
+            <p>
+              Migrated the frontend into AWS using a private S3
+              origin, CloudFront, Origin Access Control, Route 53,
+              ACM, caching, invalidation, and security headers.
+            </p>
+
+            <ul class="project-tech">
+              <li>Amazon S3</li>
+              <li>CloudFront</li>
+              <li>Route 53</li>
+              <li>ACM</li>
+              <li>OAC</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <div>
+                <span class="project-phase">
+                  Phase 3
+                </span>
+
+                <h2>Private Authentication</h2>
+              </div>
+
+              <span class="status-badge status-badge--progress">
+                Next
+              </span>
+
+            </div>
+
+            <p>
+              Introduce managed identity and a real access workflow
+              so protected portfolio capabilities can be restricted
+              to authorized users.
+            </p>
+
+            <ul class="project-tech">
+              <li>Amazon Cognito</li>
+              <li>IAM</li>
+              <li>API Gateway</li>
+              <li>Lambda</li>
+              <li>DynamoDB</li>
+            </ul>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-card-header">
+
+              <div>
+                <span class="project-phase">
+                  Future
+                </span>
+
+                <h2>Platform Expansion</h2>
+              </div>
+
+              <span class="status-badge status-badge--planned">
+                Planned
+              </span>
+
+            </div>
+
+            <p>
+              Later phases will add application APIs, infrastructure
+              as code, CI/CD, containerization, Kubernetes, and an
+              AI-powered portfolio assistant.
+            </p>
+
+            <ul class="project-tech">
+              <li>Terraform</li>
+              <li>GitHub Actions</li>
+              <li>Docker</li>
+              <li>ECR</li>
+              <li>EKS</li>
+              <li>Bedrock</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         ARCHITECTURE DECISIONS
+    ========================================= -->
+
+    <section class="page-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          Engineering Decisions
+        </p>
+
+        <h2>Architecture Decision Records</h2>
+
+        <p class="lead">
+          Major design decisions are documented so the project
+          records not only what was built, but why each approach
+          was selected.
+        </p>
+
+
+        <div class="decision-list">
+
+          <article class="decision-item">
+
+            <div>
+              <span class="status-badge status-badge--accepted">
+                Accepted
+              </span>
+
+              <h3>ADR-001 — Platform Architecture</h3>
+            </div>
+
+            <p>
+              Establishes the project structure and the principle
+              that every technology must solve a defined problem.
+            </p>
+
+          </article>
+
+
+          <article class="decision-item">
+
+            <div>
+              <span class="status-badge status-badge--proposed">
+                Proposed
+              </span>
+
+              <h3>ADR-002 — Authentication Strategy</h3>
+            </div>
+
+            <p>
+              Favors a managed identity provider rather than a
+              custom password and authentication system.
+            </p>
+
+          </article>
+
+
+          <article class="decision-item">
+
+            <div>
+              <span class="status-badge status-badge--accepted">
+                Accepted
+              </span>
+
+              <h3>ADR-003 — AWS Frontend Hosting</h3>
+            </div>
+
+            <p>
+              Uses CloudFront, Origin Access Control, private
+              Amazon S3, Route 53, and ACM for production frontend
+              delivery.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         NEXT ARCHITECTURE
+    ========================================= -->
+
+    <section class="page-section architecture-section">
+      <div class="container">
+
+        <p class="eyebrow">
+          Next Architecture
+        </p>
+
+        <h2>Phase 3 — Identity and Access</h2>
+
+        <p class="lead">
+          The next phase will move beyond protecting the S3 origin
+          and begin controlling which users are allowed to access
+          protected portfolio functionality.
+        </p>
+
+
+        <div class="architecture-flow">
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Visitor
+            </span>
+
+            <h3>Recruiter</h3>
+
+            <strong>
+              QR Code / Direct Link
+            </strong>
+
+            <p>
+              A visitor enters the Cloudy Joe access experience.
+            </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Identity
+            </span>
+
+            <h3>Amazon Cognito</h3>
+
+            <strong>
+              Managed Authentication
+            </strong>
+
+            <p>
+              Cognito is the leading authentication service for the
+              next phase of the platform.
+            </p>
+          </div>
+
+
+          <div class="architecture-arrow" aria-hidden="true">
+            →
+          </div>
+
+
+          <div class="architecture-node">
+            <span class="architecture-label">
+              Application
+            </span>
+
+            <h3>Protected Portfolio</h3>
+
+            <strong>
+              Authorized Access
+            </strong>
+
+            <p>
+              Authenticated users will gain access to protected
+              portfolio functionality as the platform evolves.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        Cloudy Joe is an evolving cloud engineering portfolio built
+        to demonstrate architecture, infrastructure, security, and
+        software engineering through hands-on implementation.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <script src="../assets/js/app.js"></script>
 
 </body>
 </html>
+
