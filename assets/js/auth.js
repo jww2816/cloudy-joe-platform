@@ -236,6 +236,28 @@ if (emailForm) {
    OTP Form
 -------------------------------------------------- */
 
+function storeAccessToken(accessToken) {
+    /*
+     * Cognito access tokens default to a limited
+     * lifetime. For this phase, our browser cookie
+     * will live for at most one hour.
+     *
+     * The Lambda@Edge authorizer will ALSO inspect
+     * the token's exp claim, so Max-Age alone is
+     * never trusted for authorization.
+     */
+
+    const maxAge = 60 * 60;
+
+    document.cookie = [
+        `cloudyJoeAccessToken=${encodeURIComponent(accessToken)}`,
+        "Path=/",
+        `Max-Age=${maxAge}`,
+        "Secure",
+        "SameSite=Lax"
+    ].join("; ");
+}
+
 if (otpForm) {
     otpForm.addEventListener(
         "submit",
@@ -288,6 +310,19 @@ if (otpForm) {
                     "Authentication successful."
                 );
 
+                const accessToken =
+                    result.AuthenticationResult.AccessToken;
+
+                if (!accessToken) {
+                    throw new Error(
+                    "Cognito did not return an access token."
+                        );
+                                    }
+
+                window.location.replace("/index.html");
+
+storeAccessToken(accessToken);
+
                 console.log(
                     "Access token received:",
                     Boolean(
@@ -331,4 +366,14 @@ if (otpForm) {
             }
         }
     );
+
+    function clearAccessToken() {
+    document.cookie = [
+        "cloudyJoeAccessToken=",
+        "Path=/",
+        "Max-Age=0",
+        "Secure",
+        "SameSite=Lax"
+    ].join("; ");
+}
 }
