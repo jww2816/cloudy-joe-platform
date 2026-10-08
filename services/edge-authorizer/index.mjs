@@ -6,7 +6,7 @@ import crypto from "crypto";
    Configuration
 -------------------------------------------------- */
 
-const REGION = "YOUR_COGNITO_REGION";
+const REGION = "us-east-1";
 
 const USER_POOL_ID =
     "us-east-1_KE62M5e9R";
