@@ -1,344 +1,138 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Secure access portal for the Cloudy Joe engineering portfolio."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure access portal for the Cloudy Joe engineering portfolio.">
   <title>Access | Cloudy Joe</title>
-
-  <link
-    rel="stylesheet"
-    href="assets/css/styles.css"
-  >
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-
   <header class="site-header">
     <div class="container nav">
-
-      <a class="brand" href="access.html">
-        Cloudy<span>Joe</span>
-      </a>
-
-      <span class="form-help">
-        Private Engineering Portfolio
-      </span>
-
+      <a class="brand" href="access.html">Cloudy<span>Joe</span></a>
+      <span class="form-help">Private Engineering Portfolio</span>
     </div>
   </header>
 
-
   <main class="access-layout">
-
     <section class="access-card">
 
-      <div
-    class="access-panel"
-    id="email-panel"
->
-    <p class="eyebrow">
-        Private Access
-    </p>
+      <!-- Approved-user sign-in -->
+      <div class="access-panel" id="email-panel">
+        <p class="eyebrow">Private Access</p>
+        <h1>Sign in to Cloudy Joe</h1>
+        <p>
+          Enter the email address associated with your approved access.
+          A one-time sign-in code will be sent to your inbox.
+        </p>
 
-    <h1>Sign in to Cloudy Joe</h1>
-
-    <p>
-        Enter the email address associated with
-        your approved access. A one-time sign-in
-        code will be sent to your inbox.
-    </p>
-
-    <form id="email-form">
-        <div class="form-group">
-            <label for="auth-email">
-                Email address
-            </label>
-
-            <input
-                id="auth-email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-            >
-
-            <p class="form-help">
-                Access is limited to approved users.
-            </p>
-        </div>
-
-        <button
-            class="button button--primary"
-            type="submit"
-        >
-            Send Sign-In Code
-        </button>
-
-        <p
-            class="status-message"
-            id="email-status"
-            role="status"
-            aria-live="polite"
-        ></p>
-    </form>
-</div>
-
-
-<div
-    class="access-panel"
-    id="otp-panel"
-    hidden
->
-    <p class="eyebrow">
-        Email Verification
-    </p>
-
-    <h1>Check your inbox</h1>
-
-    <p>
-        We sent a one-time sign-in code to
-        <strong id="otp-destination">
-            your email address
-        </strong>.
-    </p>
-
-    <form id="otp-form">
-        <div class="form-group">
-            <label for="auth-code">
-                Sign-in code
-            </label>
-
-            <input
-                id="auth-code"
-                name="code"
-                type="text"
-                inputmode="numeric"
-                autocomplete="one-time-code"
-                required
-            >
-        </div>
-
-        <button
-            class="button button--primary"
-            type="submit"
-        >
-            Verify & Continue
-        </button>
-
-        <p
-            class="status-message"
-            id="otp-status"
-            role="status"
-            aria-live="polite"
-        ></p>
-    </form>
-</div>
-
-
-<div
-    class="access-panel"
-    id="success-panel"
-    hidden
->
-    <p class="eyebrow">
-        Authentication Successful
-    </p>
-
-    <h1>You're signed in.</h1>
-
-    <p>
-        Amazon Cognito successfully verified
-        your email one-time password and returned
-        authentication tokens.
-    </p>
-
-    <p class="form-help">
-        Protected portfolio access will be enabled
-        in the next authorization stage.
-    </p>
-</div>
-
-          <div class="button-group">
-
-            <button
-              class="button button--primary"
-              type="submit"
-            >
-              Continue
-            </button>
-
-            <button
-              id="show-request-access"
-              class="button button--secondary"
-              type="button"
-            >
-              Request Access
-            </button>
-
+        <form id="email-form">
+          <div class="form-group">
+            <label for="auth-email">Email address</label>
+            <input id="auth-email" name="email" type="email" autocomplete="email" required>
+            <p class="form-help">Access is limited to approved users.</p>
           </div>
+          <button class="button button--primary" type="submit">Send Sign-In Code</button>
+          <p class="status-message" id="email-status" role="status" aria-live="polite"></p>
+        </form>
 
-          <p
-            id="access-status"
-            class="status-message"
-            aria-live="polite"
-          ></p>
+        <button id="show-request-access" class="button button--secondary" type="button">
+          Request Access
+        </button>
+      </div>
 
+      <!-- Cognito one-time password -->
+      <div class="access-panel" id="otp-panel" hidden>
+        <p class="eyebrow">Email Verification</p>
+        <h1>Check your inbox</h1>
+        <p>
+          We sent a one-time sign-in code to
+          <strong id="otp-destination">your email address</strong>.
+        </p>
+        <form id="otp-form">
+          <div class="form-group">
+            <label for="auth-code">Sign-in code</label>
+            <input id="auth-code" name="code" type="text" inputmode="numeric"
+                   autocomplete="one-time-code" required>
+          </div>
+          <button class="button button--primary" type="submit">Verify &amp; Continue</button>
+          <p class="status-message" id="otp-status" role="status" aria-live="polite"></p>
         </form>
       </div>
 
-
-      <div
-        id="request-access-panel"
-        class="access-panel"
-        hidden
-      >
-        <p class="eyebrow">
-          Request Access
-        </p>
-
-        <h2>
-          Request portfolio access
-        </h2>
-
+      <!-- Existing Cognito success panel -->
+      <div class="access-panel" id="success-panel" hidden>
+        <p class="eyebrow">Authentication Successful</p>
+        <h1>You're signed in.</h1>
         <p>
-          Submit your information below. In a later phase, this
-          request will be sent to a backend approval workflow.
+          Amazon Cognito successfully verified your email one-time password
+          and returned authentication tokens.
+        </p>
+        <p class="form-help">
+          Your identity has been verified. Redirecting you to the Cloudy Joe portfolio...
+        </p>
+      </div>
+
+      <!-- Public access request form -->
+      <div class="access-panel" id="request-access-panel" hidden>
+        <p class="eyebrow">Request Access</p>
+        <h2>Request portfolio access</h2>
+        <p>
+          Interested in exploring my engineering portfolio?
+          Submit your information below to request access.
+          Requests are reviewed manually.
         </p>
 
         <form id="request-access-form">
-
           <div class="form-group">
-            <label for="request-name">
-              Name
-            </label>
-
-            <input
-              id="request-name"
-              name="request-name"
-              type="text"
-              autocomplete="name"
-              placeholder="Your name"
-              required
-            >
+            <label for="request-name">Name</label>
+            <input id="request-name" name="request-name" type="text"
+                   autocomplete="name" placeholder="Your name" required>
           </div>
-
           <div class="form-group">
-            <label for="request-email">
-              Email
-            </label>
-
-            <input
-              id="request-email"
-              name="request-email"
-              type="email"
-              autocomplete="email"
-              placeholder="name@company.com"
-              required
-            >
+            <label for="request-email">Email</label>
+            <input id="request-email" name="request-email" type="email"
+                   autocomplete="email" placeholder="name@company.com" required>
           </div>
-
           <div class="form-group">
-            <label for="request-company">
-              Company
-            </label>
-
-            <input
-              id="request-company"
-              name="request-company"
-              type="text"
-              autocomplete="organization"
-              placeholder="Company name"
-              required
-            >
+            <label for="request-company">Company</label>
+            <input id="request-company" name="request-company" type="text"
+                   autocomplete="organization" placeholder="Company name" required>
           </div>
-
           <div class="form-group">
-            <label for="request-reason">
-              Reason for access
-            </label>
-
-            <textarea
-              id="request-reason"
-              name="request-reason"
-              rows="4"
-              placeholder="Recruiting, hiring, professional networking..."
-              required
-            ></textarea>
+            <label for="request-reason">Reason for access</label>
+            <textarea id="request-reason" name="request-reason" rows="4"
+                      placeholder="Recruiting, hiring, professional networking..." required></textarea>
           </div>
-
           <div class="button-group">
-
-            <button
-              class="button button--primary"
-              type="submit"
-            >
-              Submit Request
-            </button>
-
-            <button
-              id="cancel-request-access"
-              class="button button--secondary"
-              type="button"
-            >
-              Back
-            </button>
-
+            <button class="button button--primary" type="submit">Submit Request</button>
+            <button id="cancel-request-access" class="button button--secondary"
+                    type="button">Back</button>
           </div>
-
-          <p
-            id="request-status"
-            class="status-message"
-            aria-live="polite"
-          ></p>
-
+          <p id="request-status" class="status-message" role="status" aria-live="polite"></p>
         </form>
       </div>
 
-
-      <div
-        id="request-confirmation-panel"
-        class="access-panel"
-        hidden
-      >
-        <p class="eyebrow">
-          Request Received
-        </p>
-
-        <h2>
-          Thank you
-        </h2>
-
+      <!-- Displayed only after successful API response -->
+      <div class="access-panel" id="request-confirmation-panel" hidden>
+        <p class="eyebrow">Request Received</p>
+        <h2>Thank you</h2>
         <p>
-          Your request has been recorded by the local prototype.
-          A future AWS workflow will handle notification, approval,
-          and access provisioning.
+          Your request has been submitted successfully.
+          Access requests are reviewed manually.
+          If approved, you will receive instructions for accessing the Cloudy Joe portfolio.
         </p>
-
-        <button
-          id="return-to-access"
-          class="button button--secondary"
-          type="button"
-        >
+        <button id="return-to-access" class="button button--secondary" type="button">
           Return to Access
         </button>
       </div>
 
     </section>
-
   </main>
 
   <script src="assets/js/app.js"></script>
   <script src="assets/js/auth.js"></script>
-
+  <script src="assets/js/request-access.js"></script>
 </body>
 </html>
