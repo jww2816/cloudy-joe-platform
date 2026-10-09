@@ -1,0 +1,6 @@
+build command for dist:
+.\scripts\build-frontend.ps1
+
+local web host/testing
+python -m http.server 8000 --directory dist
+
