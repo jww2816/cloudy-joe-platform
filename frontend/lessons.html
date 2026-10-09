@@ -373,6 +373,63 @@
 
         </article>
 
+
+        <article class="lesson">
+
+          <button
+            class="lesson-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+
+            <span>
+              Updating S3 does not automatically update CloudFront
+            </span>
+
+            <span
+              class="lesson-icon"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+          </button>
+
+          <div
+            class="lesson-content"
+            hidden
+          >
+
+            <h3>Challenge</h3>
+
+            <p>
+              During testing, I discovered that Chrome could display an older version of a protected Resume page without requiring authentication, even though other pages correctly redirected to login.
+            </p>
+
+            <h3>Investigation</h3>
+
+            <p>
+              I compared normal and Incognito browser sessions and inspected HTTP responses using Chrome DevTools. This revealed that the browser was loading a previously cached HTML document rather than making a fresh request to CloudFront.
+            </p>
+
+            <h3>Solution</h3>
+
+            <p>
+              I configured Cache-Control: no-store on protected HTML responses, invalidated CloudFront's cached objects, and updated my PowerShell deployment workflow to preserve the configuration automatically.
+            </p>
+
+            <h3>What I learned</h3>
+
+            <p>
+              Authentication and authorization aren't the entire security picture. Client-side caching can affect how previously accessed content behaves after logout, making HTTP cache management an important part of designing protected applications.
+            </p>            
+
+          </div>
+
+        </article>
+
+
+
       </div>
 
     </section>

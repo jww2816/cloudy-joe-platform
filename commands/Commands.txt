@@ -1,6 +1,8 @@
-build command for dist:
+build/deploy command for dist:
 .\scripts\build-frontend.ps1
+.\scripts\deploy-frontend.ps1
 
 local web host/testing
 python -m http.server 8000 --directory dist
 
+aws s3 ls s3://cloudy-joe-frontend-prod/ --recursive
