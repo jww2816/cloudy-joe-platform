@@ -247,7 +247,7 @@ function storeAccessToken(accessToken) {
      * never trusted for authorization.
      */
 
-    const maxAge = 60 * 60;
+    const maxAge = 15 * 60;
 
     document.cookie = [
         `cloudyJoeAccessToken=${encodeURIComponent(accessToken)}`,
@@ -317,11 +317,12 @@ if (otpForm) {
                     throw new Error(
                     "Cognito did not return an access token."
                         );
-                                    }
+                }
+                storeAccessToken(accessToken);
 
                 window.location.replace("/index.html");
 
-storeAccessToken(accessToken);
+
 
                 console.log(
                     "Access token received:",

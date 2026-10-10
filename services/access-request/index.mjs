@@ -1,11 +1,41 @@
 
-import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import {
+  DynamoDBClient,
+  PutItemCommand,
+  QueryCommand
+} from "@aws-sdk/client-dynamodb";
 import { randomUUID } from "node:crypto";
 
 const dynamodb = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME;
 
 const MAX_BODY_BYTES = 4096;
+
+const EMAIL_INDEX = "email-createdAt-index";
+const DUPLICATE_WINDOW_HOURS = 24;
+
+async function hasRecentRequest(email) {
+  const cutoff = new Date(
+    Date.now() - DUPLICATE_WINDOW_HOURS * 60 * 60 * 1000
+  ).toISOString();
+
+  const result = await dynamodb.send(new QueryCommand({
+    TableName: TABLE_NAME,
+    IndexName: EMAIL_INDEX,
+    KeyConditionExpression: "#email = :email AND #createdAt >= :cutoff",
+    ExpressionAttributeNames: {
+      "#email": "email",
+      "#createdAt": "createdAt"
+    },
+    ExpressionAttributeValues: {
+      ":email": { S: email },
+      ":cutoff": { S: cutoff }
+    },
+    Limit: 1
+  }));
+
+  return (result.Count ?? 0) > 0;
+}
 
 function response(statusCode, body) {
   return {
@@ -46,6 +76,23 @@ export const handler = async (event) => {
       return response(400, { message: "Invalid request" });
     }
 
+    const allowedFields = new Set([
+      "name",
+      "email",
+      "company",
+      "reason"
+    ]);
+
+    const hasUnexpectedFields = Object.keys(data).some(
+      (field) => !allowedFields.has(field)
+    );
+
+    if (hasUnexpectedFields) {
+      return response(400, {
+        message: "Unexpected request fields"
+      });
+    }
+
     const { name, email, company, reason } = data;
 
     if (
@@ -71,6 +118,14 @@ export const handler = async (event) => {
     ) {
       return response(400, { message: "Invalid form information" });
     }
+
+    const duplicateRequest = await hasRecentRequest(cleanEmail);
+
+    if (duplicateRequest) {
+      return response(429, {
+        message: "An access request was recently submitted for this email."
+    });
+  }
 
     const requestId = randomUUID();
     const createdAt = new Date().toISOString();

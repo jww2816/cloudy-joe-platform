@@ -31,3 +31,13 @@ dist/
 # Internal Review Docs
 docs/review docs/
 commands/
+
+# AWS deployment artifacts
+/edge-authorizer-deployment.zip
+
+# Local AWS configuration backups
+/backups/
+
+# Temporary authentication test files
+/tests/edge-test-event.json
+/tests/edge-test-response.json

@@ -14,6 +14,8 @@ const USER_POOL_ID =
 const CLIENT_ID =
     "5d3a7lot7cbfd4hstpilblkdqf";
 
+const APPROVED_GROUP = "CloudyJoeApproved";
+
 const ISSUER =
     `https://cognito-idp.${REGION}.amazonaws.com/${USER_POOL_ID}`;
 
@@ -268,6 +270,19 @@ function validateClaims(payload) {
             "Token belongs to another app client."
         );
     }
+
+    // Authentication alone does not grant access.
+    // The user must belong to our approved Cognito group.
+    const groups = payload["cognito:groups"];
+
+    if (
+        !Array.isArray(groups) ||
+        !groups.includes(APPROVED_GROUP)
+    ) {
+        throw new Error(
+            "User is not a member of the approved access group."
+        );
+    }
 }
 
 
@@ -293,8 +308,11 @@ function downloadJwks() {
         (resolve, reject) => {
 
             https.get(
-                JWKS_URL,
-                (response) => {
+    JWKS_URL,
+    {
+        timeout: 2000
+    },
+    (response) => {
                     let data = "";
 
                     response.on(
@@ -334,10 +352,11 @@ function downloadJwks() {
                         }
                     );
                 }
-            ).on(
-                "error",
-                reject
-            );
+            ).on("timeout", function () {
+                this.destroy(
+                    new Error("Cognito JWKS request timed out.")
+                 );
+            }).on("error",reject);
         }
     );
 }

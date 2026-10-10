@@ -79,7 +79,8 @@
     requestStatus.textContent = "Submitting your request...";
 
     try {
-      const response = await fetch(API_URL, {
+
+        const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -88,9 +89,23 @@
         cache: "no-store"
       });
 
+      if (response.status === 429) {
+        requestStatus.textContent =
+          "An access request has already been submitted for this email " +
+          "within the past 24 hours. Please try again later.";
+        return;
+      }
+
+      if (response.status === 400 || response.status === 413) {
+        requestStatus.textContent =
+          "Please review your information and try again.";
+        return;
+      }
+
       if (!response.ok) {
         throw new Error(`Request failed: ${response.status}`);
       }
+
 
       requestForm.reset();
       requestStatus.textContent = "";
