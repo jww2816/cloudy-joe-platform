@@ -1,0 +1,37 @@
+{
+    "Version":  "2012-10-17",
+    "Statement":  [
+                      {
+                          "Effect":  "Allow",
+                          "Sid":  "AccessRequestRecords",
+                          "Resource":  "arn:aws:dynamodb:us-east-1:456768377123:table/cloudy-joe-access-requests",
+                          "Action":  [
+                                         "dynamodb:GetItem",
+                                         "dynamodb:UpdateItem"
+                                     ]
+                      },
+                      {
+                          "Effect":  "Allow",
+                          "Sid":  "ManageApprovedUsers",
+                          "Resource":  "arn:aws:cognito-idp:us-east-1:456768377123:userpool/us-east-1_KE62M5e9R",
+                          "Action":  [
+                                         "cognito-idp:AdminCreateUser",
+                                         "cognito-idp:AdminGetUser",
+                                         "cognito-idp:AdminEnableUser",
+                                         "cognito-idp:AdminDisableUser",
+                                         "cognito-idp:AdminAddUserToGroup",
+                                         "cognito-idp:AdminRemoveUserFromGroup",
+                                         "cognito-idp:AdminListGroupsForUser"
+                                     ]
+                      },
+                      {
+                          "Effect":  "Allow",
+                          "Sid":  "WriteLambdaLogs",
+                          "Resource":  "arn:aws:logs:us-east-1:456768377123:log-group:/aws/lambda/cloudy-joe-access-approval:*",
+                          "Action":  [
+                                         "logs:CreateLogStream",
+                                         "logs:PutLogEvents"
+                                     ]
+                      }
+                  ]
+}

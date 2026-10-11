@@ -1,0 +1,19 @@
+{
+  "TableName": "cloudy-joe-access-requests",
+  "Key": {
+    "requestId": {
+      "S": "e41a5f38-bb79-499d-ade8-1e3847c84cd1"
+    }
+  },
+  "UpdateExpression": "SET #s = :pending REMOVE approvedAt, activatedAt",
+  "ConditionExpression": "#s = :active AND email = :email",
+  "ExpressionAttributeNames": {
+    "#s": "status"
+  },
+  "ExpressionAttributeValues": {
+    ":pending": { "S": "PENDING" },
+    ":active": { "S": "ACTIVE" },
+    ":email": { "S": "derptown1234@gmail.com" }
+  },
+  "ReturnValues": "ALL_NEW"
+}

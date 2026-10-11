@@ -1,0 +1,13 @@
+{
+    "Version":  "2012-10-17",
+    "Statement":  [
+                      {
+                          "Effect":  "Allow",
+                          "Resource":  "arn:aws:dynamodb:us-east-1:456768377123:table/cloudy-joe-access-requests",
+                          "Action":  [
+                                         "dynamodb:Scan",
+                                         "dynamodb:UpdateItem"
+                                     ]
+                      }
+                  ]
+}

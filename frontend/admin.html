@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Access Requests | Cloudy Joe Admin</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <style>
+    .admin-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 24px;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .admin-panel {
+      background: #fff;
+      color: #273b48;
+      border: 1px solid #d8e3e5;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(20, 42, 54, 0.08);
+    }
+
+    .admin-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .admin-controls button,
+    .admin-controls select,
+    .admin-action {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #b9cbd0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .admin-controls button {
+      background: #e5f1ee;
+      color: #273b48;
+    }
+
+    .admin-table-wrap {
+      overflow-x: auto;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 780px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e2e9eb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .admin-table th {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .admin-table td {
+      overflow-wrap: anywhere;
+    }
+
+    .admin-email,
+    .admin-date {
+      font-size: 0.85rem;
+      color: #526875;
+    }
+
+    .admin-reason {
+      max-width: 280px;
+      white-space: pre-wrap;
+    }
+
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .admin-action.approve {
+      background: #d8eee1;
+      color: #205b3b;
+    }
+
+    .admin-action.reject {
+      background: #fae0dd;
+      color: #873a34;
+    }
+
+    .admin-action:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .admin-message {
+      margin: 14px 0;
+      min-height: 24px;
+    }
+
+    .admin-message.error {
+      color: #a12c2c;
+    }
+
+    .admin-message.success {
+      color: #236a45;
+    }
+
+    .admin-count {
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .admin-container {
+        margin: 24px auto;
+        padding: 0 12px;
+      }
+
+      .admin-panel {
+        padding: 16px;
+      }
+    }
+  </style>
+
+  <script src="/assets/js/admin.js" defer></script>
+</head>
+
+<body>
+  <main class="admin-container">
+    <header class="admin-header">
+      <div>
+        <h1>Cloudy Joe Admin</h1>
+        <p>Review and manage portfolio access requests.</p>
+      </div>
+
+      <a href="/index.html">Back to Portfolio</a>
+    </header>
+
+    <section class="admin-panel" aria-labelledby="requests-title">
+      <h2 id="requests-title">Access Requests</h2>
+
+      <div class="admin-controls">
+        <label for="status-filter">Status</label>
+
+        <select id="status-filter">
+          <option value="ALL">All requests</option>
+          <option value="PENDING" selected>Pending</option>
+          <option value="ACTIVE">Active</option>
+          <option value="REJECTED">Rejected</option>
+        </select>
+
+        <button id="refresh-button" type="button">
+          Refresh
+        </button>
+
+        <span id="request-count" class="admin-count"></span>
+      </div>
+
+      <p id="admin-message" class="admin-message" role="status" aria-live="polite">
+        Loading access requests...
+      </p>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Applicant</th>
+              <th>Company</th>
+              <th>Reason</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="requests-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

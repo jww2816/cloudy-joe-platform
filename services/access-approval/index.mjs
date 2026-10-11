@@ -7,6 +7,11 @@ import {
 } from "@aws-sdk/client-dynamodb";
 
 import {
+  SESv2Client,
+  SendEmailCommand
+} from "@aws-sdk/client-sesv2";
+
+import {
   CognitoIdentityProviderClient,
   AdminCreateUserCommand,
   AdminGetUserCommand,
@@ -17,6 +22,10 @@ import {
   AdminListGroupsForUserCommand
 } from "@aws-sdk/client-cognito-identity-provider";
 
+const ses = new SESv2Client({});
+
+const EMAIL_FROM = "no-reply@cloudy-joe.com";
+const LOGIN_URL = "https://www.cloudy-joe.com/access.html";
 
 const dynamodb = new DynamoDBClient({});
 const cognito = new CognitoIdentityProviderClient({});
@@ -675,7 +684,52 @@ async function inspectAccessRequest(requestId) {
   };
 }
 
+async function sendApprovalEmail(email) {
+  const subject = "Your Cloudy Joe Access Request Was Approved";
 
+  const message = `Hello!
+
+Your request to access my Cloudy Joe portfolio has been approved.
+
+You can now sign in using your email address and a one-time verification code.
+
+Visit:
+${LOGIN_URL}
+
+Select the login option, enter your email address, and request a verification code.
+
+The code will be sent to your inbox.
+
+Thanks for your interest!
+
+Joe
+Cloudy Joe
+`;
+
+  const result = await ses.send(
+    new SendEmailCommand({
+      FromEmailAddress: EMAIL_FROM,
+      Destination: {
+        ToAddresses: [email]
+      },
+      Content: {
+        Simple: {
+          Subject: {
+            Data: subject,
+            Charset: "UTF-8"
+          },
+          Body: {
+            Text: {
+              Data: message,
+              Charset: "UTF-8"
+            }
+          }
+        }
+      }
+    })
+  );
+  return result.MessageId;
+}
 
 export const handler = async (event) => {
   // Only allow explicitly supported administrator actions.
@@ -830,6 +884,21 @@ if (provisioned.created) {
     // approval record has been finalized.
     await activateCognitoUser(provisioned.username);
 
+    // Email notification must not affect successful account activation.
+// Email failures must not reverse a successful approval.
+try {
+  const messageId = await sendApprovalEmail(email);
+
+  console.log("Approval email accepted by SES", {
+    requestId,
+    messageId
+  });
+} catch (emailError) {
+  console.error("Approval succeeded, but email notification failed", {
+    requestId,
+    errorName: emailError.name
+  });
+}
 
     return {
       statusCode: 200,
