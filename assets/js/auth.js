@@ -320,7 +320,11 @@ if (otpForm) {
                 }
                 storeAccessToken(accessToken);
 
-                window.location.replace("/index.html");
+                const homePath = window.location.pathname.startsWith("/frontend/")
+                ? "/frontend/index.html"
+                : "/index.html";
+
+                window.location.replace(homePath);
 
 
 

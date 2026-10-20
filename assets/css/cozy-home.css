@@ -1,0 +1,190 @@
+/* Cloudy Joe — homepage-only cozy dusk theme. Loaded after styles.css. */
+body.cozy-home {
+  --background: #172633;
+  --surface: #243b45;
+  --surface-light: #304d53;
+  --border: #61716b;
+  --text-primary: #f5ead6;
+  --text-secondary: #e4dccb;
+  --text-muted: #bdc6bc;
+  --accent: #e0ac72;
+  --accent-hover: #f2c58a;
+  --success: #b7d5a6;
+  --radius: 15px;
+  background: #172633;
+  color: var(--text-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.cozy-home .site-header {
+  position: relative;
+  z-index: 5;
+  background: rgba(22, 36, 48, .94);
+  border-bottom: 1px solid rgba(245,234,214,.22);
+  box-shadow: 0 5px 22px rgba(10,22,32,.2);
+}
+.cozy-home .brand { font-size: 1.55rem; letter-spacing: .015em; }
+.cozy-home .brand span { color: #edbd7c; }
+.cozy-home .nav-links a, .cozy-home .nav-signout { font-family: system-ui, sans-serif; font-size: .86rem; color: #f3ead9; }
+.cozy-home .nav-links a:hover, .cozy-home .nav-signout:hover { color: #f5c588; }
+.cozy-home .nav-signout { background: #c98f5d; color: #192936; padding: .58rem .9rem; border: 1px solid #f4c18a; border-radius: 7px; font-weight: 700; }
+.cozy-home .nav-signout:hover { color: #172633; background: #e9b77d; }
+.cozy-home .hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 570px;
+  padding: 6.7rem 0 8.4rem;
+  background: radial-gradient(circle at 79% 42%, rgba(255,196,125,.78) 0 4%, rgba(246,161,125,.28) 5% 13%, transparent 24%),
+    radial-gradient(ellipse at 75% 80%, rgba(219,140,143,.52), transparent 45%),
+    linear-gradient(160deg, #1c354b 2%, #344a63 38%, #82758a 73%, #b68c89 100%);
+}
+.cozy-home .hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .66;
+  background-image: radial-gradient(#fff1c9 1px,transparent 1px), radial-gradient(#ffe5ad 1px,transparent 1px);
+  background-size: 81px 93px, 127px 117px; background-position: 11px 13px, 44px 68px;
+  mask-image: linear-gradient(to bottom,#000,transparent 75%);
+}
+.cozy-home .hero::after {
+  content: ''; position: absolute; left: -10%; right: -10%; bottom: -45px; height: 175px;
+  background: radial-gradient(ellipse at 5% 85%,#e5b6aa 0 26%,transparent 27%),
+    radial-gradient(ellipse at 24% 75%,#d9b0b0 0 26%,transparent 27%),
+    radial-gradient(ellipse at 51% 83%,#e8c6b8 0 29%,transparent 30%),
+    radial-gradient(ellipse at 77% 73%,#d4adb3 0 30%,transparent 31%),
+    radial-gradient(ellipse at 96% 85%,#ead1be 0 28%,transparent 29%);
+  filter: drop-shadow(0 -15px 28px rgba(22,33,48,.12));
+}
+.cozy-home .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+.cozy-home .hero-copy { max-width: 630px; padding: 2.1rem 2.35rem; background: rgba(21,39,52,.67); border: 1px solid rgba(249,226,195,.35); border-radius: 12px; box-shadow: 0 18px 65px rgba(11,24,38,.24); backdrop-filter: blur(6px); }
+.cozy-home .eyebrow { color: #e9ba7e; font: 700 .78rem/1.5 system-ui,sans-serif; letter-spacing: .13em; }
+.cozy-home h1 { font-size: clamp(2.3rem,4.5vw,4.15rem); letter-spacing: -.025em; text-shadow: 0 2px 15px rgba(15,30,40,.25); }
+.cozy-home .lead { color: #f0e5d5; font-size: 1.07rem; line-height: 1.85; }
+.cozy-home .button { font-family: system-ui,sans-serif; font-size: .9rem; border-radius: 7px; box-shadow: 0 4px 0 rgba(10,25,30,.32); transition: transform .18s,background .18s; }
+.cozy-home .button:hover { transform: translateY(-2px); }
+.cozy-home .button--primary { background: #e5b278; color: #27333a; border-color: #f4ce99; }
+.cozy-home .button--primary:hover { background: #f4c993; }
+.cozy-home .button--secondary { background: rgba(25,42,53,.82); border-color: #dfc7aa; color: #fff0dc; }
+.cozy-home .button--secondary:hover { background: #344b55; }
+.cozy-home .page-section { padding: 5rem 0; }
+.cozy-home .village-section { background: linear-gradient(180deg,#203847,#253f44 80%,#2c4646); }
+.cozy-home .section-intro { max-width: 740px; margin-bottom: 2.5rem; }
+.cozy-home .section-intro h2 { font-size: clamp(2rem,3.5vw,3rem); }
+.cozy-home .section-intro .lead { color: #e5ddce; }
+.cozy-home .grid--3 { gap: 1.45rem; }
+.cozy-home .card { position: relative; overflow: hidden; background: #f1e3c8; border: 2px solid #a88a68; border-radius: 10px; color: #263c40; padding: 0 1.5rem 1.5rem; box-shadow: 0 8px 0 rgba(14,29,33,.28),0 20px 32px rgba(12,27,33,.2); transition: transform .2s, box-shadow .2s; }
+.cozy-home .card:hover { transform: translateY(-5px); box-shadow: 0 12px 0 rgba(14,29,33,.22),0 25px 36px rgba(12,27,33,.25); }
+.cozy-home .card::before { content: ''; display: block; height: 122px; margin: 0 -1.5rem 1.25rem; background: radial-gradient(circle at 76% 27%,#f2c68c 0 13px,transparent 14px),linear-gradient(155deg,#354d5b 10%,#75899a 68%,#d7a0a0); border-bottom: 3px solid #b49a75; }
+.cozy-home .card:nth-child(2)::before { background: radial-gradient(circle at 70% 25%,#edc88e 0 16px,transparent 17px),linear-gradient(155deg,#324c58,#8c91a4 65%,#e1b7a5); }
+.cozy-home .card:nth-child(3)::before { background: radial-gradient(circle at 26% 26%,#eac18c 0 14px,transparent 15px),linear-gradient(155deg,#304c4a,#748f84 62%,#b7b29c); }
+.cozy-home .card:nth-child(4)::before { background: radial-gradient(circle at 73% 24%,#f0c889 0 14px,transparent 15px),linear-gradient(155deg,#31434b,#67877e 66%,#c4a88e); }
+.cozy-home .card:nth-child(5)::before { background: radial-gradient(circle at 70% 25%,#efc78e 0 13px,transparent 14px),linear-gradient(155deg,#243d50,#627d92 64%,#b9a7a8); }
+.cozy-home .card:nth-child(6)::before { background: radial-gradient(circle at 73% 25%,#eec38b 0 14px,transparent 15px),linear-gradient(155deg,#3a4b59,#8c8392 64%,#d2a69a); }
+.cozy-home .card h3 { font-size: 1.5rem; }
+.cozy-home .card p { color: #455451; }
+.cozy-home .card .text-link { color: #855333; }
+.cozy-home .card .text-link:hover { color: #56321f; }
+.cozy-home .card .status-badge { color: #41694b; border-color: #a7b59c; }
+.cozy-home .platform-status { background: linear-gradient(155deg,#182c38,#2a454b); border-top: 1px solid #536d6d; }
+.cozy-home .status-grid { gap: 1.1rem; }
+.cozy-home .status-item { background: #f0e1c5; border: 2px solid #a48b69; color: #253c41; border-radius: 10px; box-shadow: 0 5px 0 rgba(10,23,30,.24); }
+.cozy-home .status-item strong { color: #865c3c; }
+.cozy-home .status-item .status-badge--completed { color: #326845; border-color: #84a17d; }
+.cozy-home .status-item .status-badge--progress { color: #385c79; border-color: #829cad; }
+.cozy-home .site-footer { background: #132530; border-color: #53696b; color: #d3cbbd; }
+.cozy-home a:focus-visible, .cozy-home button:focus-visible { outline: 3px solid #f8d391; outline-offset: 4px; }
+@media(max-width:800px) { .cozy-home .hero { padding: 3rem 0 7rem; min-height: 0; } .cozy-home .hero-copy { padding: 1.6rem; } .cozy-home .page-section { padding: 3.3rem 0; } .cozy-home .nav-links { gap: .8rem; } }
+@media(prefers-reduced-motion:reduce) { .cozy-home .card, .cozy-home .button { transition: none; } }
+
+/* V2 illustrated cloud village: art cropped from approved concept mockup. */
+.cozy-home .site-header { background:#101f30; }
+.cozy-home .hero { min-height: 530px; padding: 5.5rem 0 6rem; isolation:isolate;
+  background: radial-gradient(circle at 76% 45%, #efad7a 0, #ab758a 16%, transparent 37%), linear-gradient(170deg,#132c43 0%,#304663 48%,#997d95 75%,#d3a19b 100%); }
+.cozy-home .hero-scenery { position:absolute; bottom:0; height:78%; width:min(37vw,570px); background-size:cover; background-repeat:no-repeat; z-index:-1; pointer-events:none; }
+.cozy-home .hero-scenery--left { left:0; background-image:linear-gradient(90deg,transparent 76%,rgba(31,49,68,.15)),url('../images/hero-cottage.png'); background-position:left bottom; }
+.cozy-home .hero-scenery--right { right:0; background-image:linear-gradient(270deg,transparent 74%,rgba(31,49,68,.08)),url('../images/hero-castle.png'); background-position:right bottom; }
+.cozy-home .hero::after { z-index:-1; opacity:.75; }
+.cozy-home .hero-content { max-width:1200px; display:flex; justify-content:center; }
+.cozy-home .hero-copy { width:min(100%,580px); margin-left:8%; padding:2rem 2.2rem; background:rgba(16,32,48,.80); border-color:rgba(244,202,151,.4); }
+.cozy-home .village-section { background:linear-gradient(180deg,#1d3443,#243b43); }
+.cozy-home .village-section > .container { width:min(100% - 2rem,1360px); background:#f0e1c2; color:#273b3d; padding:2rem; border:3px solid #b98f5f; border-radius:12px; box-shadow:0 22px 60px rgba(6,18,29,.4); }
+.cozy-home .village-section .eyebrow { color:#80542d; }
+.cozy-home .village-section .section-intro { max-width:100%; display:grid; grid-template-columns:1fr 1fr; column-gap:2rem; margin-bottom:1.5rem; }
+.cozy-home .village-section .section-intro .eyebrow { grid-column:1/-1; }
+.cozy-home .village-section .section-intro .lead { color:#405252; font-size:1rem; margin:0; }
+.cozy-home .village-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.cozy-home .destination-card { padding:0 1rem 1.1rem; text-align:center; border-color:#b88a56; background:#f7e8cb; }
+.cozy-home .destination-card::before { height:155px; margin:0 -1rem 1rem; background-size:cover; background-position:center; border-bottom:3px solid #b88a56; image-rendering:auto; }
+.cozy-home .destination-card:nth-child(1)::before { background-image:url('../images/destination-1.png'); }
+.cozy-home .destination-card:nth-child(2)::before { background-image:url('../images/destination-2.png'); }
+.cozy-home .destination-card:nth-child(3)::before { background-image:url('../images/destination-3.png'); }
+.cozy-home .destination-card:nth-child(4)::before { background-image:url('../images/destination-4.png'); }
+.cozy-home .destination-card:nth-child(5)::before { background-image:url('../images/destination-5.png'); }
+.cozy-home .destination-card:nth-child(6)::before { background-image:url('../images/destination-6.png'); }
+.cozy-home .destination-card h3 { font-size:1.35rem; margin-bottom:.4rem; }
+.cozy-home .destination-card p { font-size:.94rem; min-height:4.6em; line-height:1.55; }
+.cozy-home .destination-card .text-link { display:block; background:#254e61; border:1px solid #9b744f; border-radius:6px; color:#fff2d9; padding:.6rem .75rem; margin-top:1rem; font:700 .85rem system-ui,sans-serif; }
+.cozy-home .destination-card .text-link:hover { background:#376d7a; color:#fff; }
+.cozy-home .platform-status { background:linear-gradient(180deg,#213748,#102336); }
+.cozy-home .status-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.cozy-home .status-item { display:flex; flex-direction:column; align-items:flex-start; gap:.6rem; padding:1.2rem; }
+.cozy-home .status-item .status-badge { margin-top:auto; }
+@media(max-width:1050px) { .cozy-home .hero-scenery { width:43vw; opacity:.7; } .cozy-home .hero-copy { margin-left:0; } .cozy-home .status-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) { .cozy-home .hero { padding:4rem 0 5rem; } .cozy-home .hero-scenery--right { display:none; } .cozy-home .hero-scenery--left { width:100%; opacity:.38; } .cozy-home .hero-copy { padding:1.5rem; } .cozy-home .village-section > .container { padding:1rem; } .cozy-home .village-section .section-intro { display:block; } .cozy-home .village-grid { grid-template-columns:1fr; } .cozy-home .destination-card::before { height:190px; } .cozy-home .status-grid { grid-template-columns:1fr; } }
+
+/* V3: cohesive panoramic hero, single-image navigation cards. */
+.cozy-home .hero {
+  min-height: 560px;
+  padding: 6rem 0 7rem;
+  background: linear-gradient(90deg, rgba(13,28,43,.08) 0%, rgba(16,30,46,.30) 33%, rgba(16,30,46,.38) 63%, rgba(13,28,43,.08) 100%), url('../images/hero-panorama.jpg') center center / cover no-repeat;
+}
+.cozy-home .hero::before { opacity:.22; }
+.cozy-home .hero::after { bottom:-55px; opacity:.28; }
+.cozy-home .hero-content { justify-content:center; }
+.cozy-home .hero-copy {
+  width:min(100%,660px); margin-left:0;
+  background:rgba(14,29,44,.70);
+  box-shadow:0 12px 45px rgba(9,18,31,.28);
+  backdrop-filter:blur(3px);
+}
+.cozy-home .village-section { padding-top:1rem; background:linear-gradient(180deg,#253b4b,#203742 60%,#243b43); }
+.cozy-home .destination-card::before {
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  height:auto; aspect-ratio: 2 / 1;
+}
+@media(max-width:700px) {
+  .cozy-home .hero { min-height:480px; padding:3.5rem 0 5rem; background-position:38% center; }
+  .cozy-home .hero-copy { padding:1.5rem; background:rgba(14,29,44,.82); }
+  .cozy-home .destination-card::before { height:auto; aspect-ratio: 2 / 1; }
+}
+
+/* V4 — full-bleed scenery and artwork with its original proportions. */
+.cozy-home .hero {
+  background-image: url('../images/hero-panorama-v4.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* No edge fade, no star overlay or opaque bottom cloud mask. */
+.cozy-home .hero::before, .cozy-home .hero::after { content: none; }
+/* Keep readable text without dimming the entire landscape. */
+.cozy-home .hero-copy {
+  background: rgba(13, 29, 44, .76);
+  backdrop-filter: blur(2px);
+}
+/* Images are 208x141 (roughly 1.48:1), not 2:1. */
+.cozy-home .destination-card::before {
+  aspect-ratio: 208 / 141;
+  height: auto;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+/* Let the card description and action button align naturally. */
+.cozy-home .destination-card { display:flex; flex-direction:column; }
+.cozy-home .destination-card::before { flex:0 0 auto; }
+.cozy-home .destination-card .text-link,
+.cozy-home .destination-card .status-badge { margin-top:auto; }
+@media(max-width:700px) {
+  .cozy-home .hero { background-position: 34% center; }
+  .cozy-home .destination-card::before { aspect-ratio:208/141; }
+}

@@ -13,14 +13,49 @@ if (Test-Path $distDirectory) {
 
 New-Item -ItemType Directory -Path $distDirectory | Out-Null
 
-Copy-Item `
-    (Join-Path $frontendDirectory "*.html") `
-    $distDirectory
+# Copy only approved production HTML pages
+$pages = @(
+    "index.html",
+    "resume.html",
+    "architecture.html",
+    "projects.html",
+    "lessons.html",
+    "access.html",
+    "admin.html"
+)
+
+foreach ($page in $pages) {
+    $source = Join-Path $frontendDirectory $page
+    $destination = Join-Path $distDirectory $page
+
+    if (-not (Test-Path $source)) {
+        throw "Required frontend page missing: $page"
+    }
+
+    Copy-Item $source $destination
+}
 
 Copy-Item `
     $assetsDirectory `
     (Join-Path $distDirectory "assets") `
     -Recurse
+
+# Remove development-only files from the production build
+$excludePaths = @(
+    "assets\css\cozy-home.backup.css",
+    "assets\js\architecture-calibrate.js",
+    "assets\cloudy-joe-homepage-v1"
+)
+
+foreach ($relativePath in $excludePaths) {
+    $target = Join-Path $distDirectory $relativePath
+
+    if (Test-Path $target) {
+        Remove-Item $target -Recurse -Force
+        Write-Host "Excluded development file: $relativePath"
+    }
+}
+
 
 Get-ChildItem `
     (Join-Path $distDirectory "*.html") |

@@ -4,5 +4,6 @@ build/deploy command for dist:
 
 local web host/testing
 python -m http.server 8000 --directory dist
+python -m http.server 8000 --directory frontend
 
 aws s3 ls s3://cloudy-joe-frontend-prod/ --recursive

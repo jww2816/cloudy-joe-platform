@@ -1,0 +1,165 @@
+/* Projects page — isolated styles, loaded after the existing global stylesheet. */
+.cozy-projects-page{--night:#142b3b;--night-deep:#101f30;--paper:#f3e4c8;--ink:#263d43;--gold:#e8b77c;--muted-dark:#d9e2df;background:#172e3b;color:#f6e9d4}
+.cozy-projects-page *{box-sizing:border-box}
+.cozy-projects-page .container{width:min(1140px,calc(100% - 36px));margin-inline:auto}
+.cozy-projects-page .site-header{background:#142636;border-bottom:1px solid #547079}
+.cozy-projects-page .nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:15px}
+.cozy-projects-page .brand{font-weight:800;font-size:1.55rem;color:#fff1d8;text-decoration:none}.cozy-projects-page .brand span{color:#f1bd7b}
+.cozy-projects-page .nav-links{display:flex;align-items:center;gap:clamp(8px,1.5vw,22px);flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.cozy-projects-page .nav-links a{color:#f4eadb;text-decoration:none;font-size:.89rem}.cozy-projects-page .nav-links a:hover,.cozy-projects-page .nav-links a[aria-current=page]{color:#f7c889}
+.cozy-projects-page .nav-signout{background:#d8a26b;color:#152a36;border:0;border-radius:8px;padding:9px 13px;cursor:pointer;font-weight:700}
+.cozy-projects-page .projects-hero{position:relative;overflow:hidden;min-height:360px;display:flex;align-items:center;background:radial-gradient(ellipse at 76% 18%,#8e7e85 0%,transparent 35%),linear-gradient(150deg,#314e60 0%,#243e52 45%,#122636 100%)}
+.cozy-projects-page .projects-hero::before{content:"";position:absolute;inset:0;opacity:.23;background:radial-gradient(ellipse 130px 32px at 20% 72%,#e5d8ca 0 95%,transparent 100%),radial-gradient(ellipse 180px 36px at 80% 80%,#e5d8ca 0 95%,transparent 100%),radial-gradient(ellipse 160px 28px at 55% 32%,#f4e5d6 0 95%,transparent 100%)}
+.cozy-projects-page .projects-hero-inner{position:relative;padding-block:70px 75px}
+.cozy-projects-page .journal-eyebrow{font-size:.73rem;letter-spacing:.18em;font-weight:800;color:#f0c48d;margin:0 0 13px}
+.cozy-projects-page h1{font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,4.9rem);line-height:1.08;color:#fff0d6;margin:0 0 16px}
+.cozy-projects-page .projects-lead{max-width:650px;color:#f0e5d6;font-size:1.1rem;line-height:1.7;margin:0 0 23px}
+.cozy-projects-page .journal-button{display:inline-flex;gap:15px;align-items:center;background:#e9b980;color:#1a2d37;padding:12px 20px;border-radius:8px;font-weight:800;text-decoration:none}
+.cozy-projects-page .journal-section{background:linear-gradient(180deg,#243e4d 0%,#182f3c 100%);padding:68px 0 80px}
+.cozy-projects-page .journal-heading{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:27px}
+.cozy-projects-page .journal-heading h2,.cozy-projects-page .roadmap-copy h2{font-family:Georgia,serif;color:#fff0d9;font-size:clamp(1.8rem,3.5vw,2.8rem);margin:0}
+.cozy-projects-page .journal-heading>p{color:#e4e7de;max-width:300px;line-height:1.6;margin:0}
+.cozy-projects-page .journal-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:25px;align-items:start}
+.cozy-projects-page .project-entry{background:var(--paper);color:var(--ink);border:7px solid #d6b88c;border-radius:15px;overflow:hidden;box-shadow:0 14px 0 #0e202b55,0 24px 45px #0b19233d}
+.cozy-projects-page .project-scene{height:250px;position:relative;overflow:hidden;isolation:isolate;background:#67899a;border-bottom:5px solid #b9996c}
+.cozy-projects-page .scene-cloud{position:absolute;background:#e9ddca;border-radius:60% 60% 35% 35%;height:25px;width:130px;filter:drop-shadow(0 5px 0 #9ca9a6)}
+.cozy-projects-page .scene-cloud.cloud-a{top:48px;left:7%}.cozy-projects-page .scene-cloud.cloud-b{top:77px;right:8%;transform:scale(.72)}
+.cozy-projects-page .scene-cloud{box-shadow:18px -12px 0 2px #e9ddca,50px -7px 0 8px #e9ddca}
+.cozy-projects-page .scene-cloud,.cozy-projects-page .scene-cottage,.cozy-projects-page .scene-island,.cozy-projects-page .scene-lantern,.cozy-projects-page .lab-building,.cozy-projects-page .lab-terminal,.cozy-projects-page .lab-tree{image-rendering:pixelated}
+.cozy-projects-page .scene-cloud{z-index:1}.cozy-projects-page .scene-cloud.cloud-b{z-index:0}
+.cozy-projects-page .scene-cloud~.scene-island{z-index:2}
+.cozy-projects-page .scene-cloud~.scene-cottage{z-index:3}
+.cozy-projects-page .scene-cloud~.scene-lantern{z-index:4}
+.cozy-projects-page .scene-cloud~.scene-path{z-index:3}
+.cozy-projects-page .scene-cloud~.scene-sun{z-index:0}
+.cozy-projects-page .scene-cloud~.scene-island{box-shadow:0 14px 0 #5e7065,0 28px 0 -7px #3e5360}
+.cozy-projects-page .scene-cloud~.scene-island::before{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(90deg,transparent 0 24px,#83a079 24px 28px,transparent 28px 52px);opacity:.5}
+.cozy-projects-page .scene-cloud~.scene-cottage::after{content:"";position:absolute;top:-37px;left:-15px;border-left:77px solid transparent;border-right:77px solid transparent;border-bottom:42px solid #7a5654}
+.cozy-projects-page .scene-cloud~.scene-cottage::before{content:"";position:absolute;bottom:0;left:43%;height:49px;width:25px;background:#614d42;border:4px solid #e3c595}
+.cozy-projects-page .scene-cloud~.scene-cottage i{position:absolute;left:15px;top:16px;width:21px;height:24px;background:#ffdc83;border:4px solid #795e50;box-shadow:70px 0 0 -1px #ffdc83,70px 0 0 3px #795e50}
+.cozy-projects-page .scene-cloud~.scene-lantern::before{content:"";position:absolute;bottom:0;left:8px;width:4px;height:56px;background:#4b3c37}
+.cozy-projects-page .scene-cloud~.scene-lantern::after{content:"";position:absolute;top:1px;left:0;width:20px;height:24px;background:#f9cf72;border:4px solid #58483d;box-shadow:0 0 22px 8px #f5d58c99}
+.cozy-projects-page .scene-cloud~.scene-path{position:absolute;bottom:25px;left:45%;width:30%;height:25px;background:#c8ae84;transform:rotate(-8deg);border-radius:50%}
+.cozy-projects-page .scene-sun{position:absolute;top:28px;right:24%;width:64px;height:64px;border-radius:50%;background:#f3c991;box-shadow:0 0 40px #f5c99888}
+.cozy-projects-page .scene-island{position:absolute;left:10%;right:10%;bottom:22px;height:76px;border-radius:55% 48% 36% 37%;background:#77976e;border-bottom:15px solid #53695b}
+.cozy-projects-page .scene-cottage{position:absolute;bottom:74px;left:37%;width:126px;height:86px;background:#d8bc90;border:5px solid #856956}
+.cozy-projects-page .scene-lantern{position:absolute;bottom:75px;left:26%;width:20px;height:72px}
+.cozy-projects-page .scene-homelab{background:linear-gradient(#374c69,#6d7883 75%,#829078)}
+.cozy-projects-page .scene-moon{position:absolute;top:27px;right:20%;width:58px;height:58px;border-radius:50%;background:#f0dcaa;box-shadow:0 0 34px #f1dda688}
+.cozy-projects-page .lab-hill{position:absolute;bottom:-60px;left:-10%;width:120%;height:140px;background:#657f6a;border-radius:50%}
+.cozy-projects-page .lab-building{position:absolute;bottom:60px;left:28%;width:170px;height:104px;background:#c7a982;border:6px solid #635e57}
+.cozy-projects-page .lab-building::before{content:"";position:absolute;left:-18px;top:-44px;border-left:99px solid transparent;border-right:99px solid transparent;border-bottom:46px solid #6d5656}
+.cozy-projects-page .lab-building i{position:absolute;top:22px;width:23px;height:29px;background:#f8cd76;border:4px solid #655449}
+.cozy-projects-page .lab-building i:nth-child(1){left:18px}.cozy-projects-page .lab-building i:nth-child(2){left:65px}.cozy-projects-page .lab-building i:nth-child(3){left:112px}
+.cozy-projects-page .lab-terminal{position:absolute;bottom:63px;left:51%;height:45px;width:50px;border:6px solid #454f50;background:#8fcbaf;box-shadow:0 0 20px #8fcbaf77}
+.cozy-projects-page .lab-terminal i{position:absolute;left:8px;top:12px;width:23px;height:5px;background:#365d5e;box-shadow:0 10px 0 #365d5e}
+.cozy-projects-page .lab-tree{position:absolute;bottom:66px;right:15%;width:13px;height:75px;background:#5e4b43}
+.cozy-projects-page .lab-tree::before{content:"";position:absolute;bottom:35px;left:-34px;width:82px;height:95px;border-radius:50%;background:#557865}
+.cozy-projects-page .project-entry-body{padding:27px 30px 30px}
+.cozy-projects-page .project-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}
+.cozy-projects-page .project-stamp{font-size:.69rem;letter-spacing:.09em;font-weight:800;color:#2e644d;background:#dce6c9;border:1px solid #9ab68f;padding:5px 9px;border-radius:4px}
+.cozy-projects-page .stamp-progress{color:#755025;background:#f5e3bc;border-color:#d4b781}
+.cozy-projects-page .project-number{font-size:.72rem;letter-spacing:.1em;font-weight:700;color:#665d4f}
+.cozy-projects-page .project-entry h3{font-family:Georgia,serif;font-size:2rem;line-height:1.2;color:#203a42;margin:0 0 5px}
+.cozy-projects-page .project-subtitle{color:#795738!important;font-weight:700;margin:0 0 14px!important}
+.cozy-projects-page .project-entry p{color:#35494a;line-height:1.7;margin:0 0 17px}
+.cozy-projects-page .tech-tags{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 22px;padding:0}
+.cozy-projects-page .tech-tags li{background:#e0d6bb;border:1px solid #c4b795;color:#294449;border-radius:5px;padding:5px 9px;font-size:.74rem;font-weight:700}
+.cozy-projects-page .project-toggle{width:100%;background:#274858;color:#fff0d8;border:0;border-radius:8px;padding:13px 15px;font-size:.92rem;font-weight:750;cursor:pointer;display:flex;align-items:center;justify-content:space-between;text-align:left}
+.cozy-projects-page .project-toggle:hover{background:#355f6c}.cozy-projects-page .project-toggle:focus-visible{outline:3px solid #c18b47;outline-offset:3px}
+.cozy-projects-page .project-notes{margin-top:20px;border-top:2px dashed #b9a582;padding-top:14px}
+.cozy-projects-page .project-notes[hidden]{display:none}
+.cozy-projects-page .project-notes h4{font-size:.96rem;color:#6f4b31;margin:14px 0 5px}.cozy-projects-page .project-notes p{margin-bottom:10px;font-size:.91rem}
+.cozy-projects-page .notes-link{color:#28566b;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.cozy-projects-page .roadmap-section{background:#e8d7b8;color:#273e45;padding:65px 0}
+.cozy-projects-page .roadmap-copy h2{color:#263d43}.cozy-projects-page .roadmap-copy .journal-eyebrow{color:#8a5b35}
+.cozy-projects-page .roadmap-copy>p:last-child{color:#43575b;line-height:1.7;max-width:650px}
+.cozy-projects-page .roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:25px}
+.cozy-projects-page .roadmap-item{background:#f7ebd5;border:2px solid #cfb891;border-radius:10px;padding:24px 19px;box-shadow:0 5px 0 #b7a283}
+.cozy-projects-page .roadmap-symbol{font-size:1.8rem;color:#956d42}.cozy-projects-page .roadmap-item h3{font-family:Georgia,serif;color:#27414a;font-size:1.22rem;margin:10px 0 7px}.cozy-projects-page .roadmap-item p{font-size:.88rem;line-height:1.6;color:#45595c;margin:0}
+.cozy-projects-page .journal-end{text-align:center;padding:48px 0;background:#172c3b}.cozy-projects-page .journal-end p{color:#f2e7d4;font-family:Georgia,serif;font-size:1.2rem}.cozy-projects-page .journal-end a{color:#f5c18a;font-weight:750}
+.cozy-projects-page .site-footer{background:#102331;color:#e8dfcf;border-top:1px solid #48606b;padding:22px 0}
+@media(max-width:800px){.cozy-projects-page .journal-grid{grid-template-columns:1fr}.cozy-projects-page .roadmap-grid{grid-template-columns:1fr}.cozy-projects-page .journal-heading{display:block}.cozy-projects-page .journal-heading>p{margin-top:10px}.cozy-projects-page .project-scene{height:220px}}
+@media(max-width:560px){.cozy-projects-page .nav{align-items:flex-start;flex-direction:column}.cozy-projects-page .nav-links{gap:10px}.cozy-projects-page .nav-links a{font-size:.8rem}.cozy-projects-page .projects-hero-inner{padding-block:50px}.cozy-projects-page .project-entry-body{padding:20px}.cozy-projects-page .project-scene{height:185px}.cozy-projects-page .project-meta{flex-wrap:wrap}.cozy-projects-page .scene-cottage{transform:scale(.85);transform-origin:bottom center}}
+
+/* V2: matched illustrated cards; the images replace V1 CSS scenery. */
+.cozy-projects-page .journal-grid {grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:22px}
+.cozy-projects-page .project-entry {display:flex;flex-direction:column;min-width:0;min-height:625px}
+.cozy-projects-page .project-scene {flex:none;height:auto;aspect-ratio: 2.52 / 1;border-bottom:5px solid #b9996c;background-color:#334d61;background-repeat:no-repeat;background-position:center;background-size:cover}
+.cozy-projects-page .scene-cloud {background-image:url('../images/project-cloudy-joe-v2.jpg')}
+.cozy-projects-page .scene-homelab {background-image:url('../images/project-homeops-v2.jpg')}
+.cozy-projects-page .project-entry-body {flex:1;display:flex;flex-direction:column;padding:25px 26px 25px}
+.cozy-projects-page .project-entry-body > .tech-tags {margin-top:auto;margin-bottom:18px}
+.cozy-projects-page .project-entry-body > .project-toggle {flex-shrink:0}
+.cozy-projects-page .project-entry-body > .project-notes:not([hidden]) {flex-shrink:0}
+/* Expanded notes grow only the selected card; the other stays at its initial height. */
+@media(max-width:800px){.cozy-projects-page .journal-grid{grid-template-columns:1fr}.cozy-projects-page .project-entry{min-height:0}.cozy-projects-page .project-entry-body>.tech-tags{margin-top:12px}}
+@media(max-width:560px){.cozy-projects-page .project-scene{height:auto;aspect-ratio:2.52/1}.cozy-projects-page .project-entry-body{padding:20px}}
+
+/* V3 repair: illustrations are actual images, not legacy CSS scenery. */
+.cozy-projects-page .project-scene {
+  position:relative; display:block; width:100%; height:auto;
+  aspect-ratio:2.52/1; overflow:hidden; isolation:auto;
+  background:#334d61; border-radius:0; box-shadow:none; filter:none;
+  padding:0; margin:0; border-bottom:5px solid #b9996c;
+}
+.cozy-projects-page .project-scene img {
+  display:block; width:100%; height:100%; object-fit:cover; object-position:center;
+  border:0; border-radius:0; max-width:none;
+}
+.cozy-projects-page .project-scene::before,
+.cozy-projects-page .project-scene::after {content:none !important;}
+.cozy-projects-page .project-entry {min-height:625px;}
+@media(max-width:800px){.cozy-projects-page .project-entry{min-height:0}}
+
+/* =========================================
+   Projects V4 - Background cleanup
+   ========================================= */
+
+/* Consistent twilight background */
+body.cozy-projects-page {
+    background: #102538;
+    color: #f5ead7;
+}
+
+/* Remove leftover decorative oval clouds */
+.cozy-projects-page .projects-hero::before,
+.cozy-projects-page .projects-hero::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Keep the hero and project sections consistent */
+.cozy-projects-page .projects-hero,
+.cozy-projects-page .projects-workbench {
+    background-color: #102538;
+    background-image: none;
+}
+
+/* =========================================
+   Lessons Learned - Readability Improvements
+   ========================================= */
+
+/* Main lesson titles */
+.cozy-lessons-page .lesson-toggle,
+.cozy-lessons-page .lesson-toggle span {
+    color: #F8EBD5 !important;
+}
+
+/* Small labels above lesson titles */
+.cozy-lessons-page .lesson-toggle .lesson-meta,
+.cozy-lessons-page .lesson-toggle .lesson-category {
+    color: #E9B977 !important;
+}
+
+/* Expanded lesson content */
+.cozy-lessons-page .lesson-content,
+.cozy-lessons-page .lesson-content p,
+.cozy-lessons-page .lesson-content li {
+    color: #F0E5D2 !important;
+}
+
+/* Headings inside expanded lessons */
+.cozy-lessons-page .lesson-content h3 {
+    color: #F3C786 !important;
+}

@@ -41,3 +41,7 @@ commands/
 # Temporary authentication test files
 /tests/edge-test-event.json
 /tests/edge-test-response.json
+
+# ZIPPed v2 style stuff
+/styleV2
+

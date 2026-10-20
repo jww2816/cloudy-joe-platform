@@ -13,7 +13,11 @@ function signOut() {
     ].join("; ");
 
     // Replace current history entry.
-    window.location.replace("/access.html");
+    const accessPath = window.location.pathname.startsWith("/frontend/")
+    ? "/frontend/access.html"
+    : "/access.html";
+
+    window.location.replace(accessPath);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

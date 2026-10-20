@@ -1,0 +1,70 @@
+/* Architecture V1: isolated page theme; existing application styles and JS untouched */
+.cozy-architecture-page{--arch-cream:#f5e9d4;--arch-ink:#233842;--arch-gold:#eeb778;background:#122638;color:var(--arch-cream);font-family:Georgia,serif}
+.cozy-architecture-page .container{width:min(95%,1460px);max-width:1460px;margin-inline:auto}
+.cozy-architecture-page .site-header{background:#0c1c30;border-bottom:1px solid #b88d5c;position:relative;z-index:5}
+.cozy-architecture-page .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.cozy-architecture-page .brand{font:700 1.65rem Georgia,serif;color:#f5ead8;text-decoration:none}.cozy-architecture-page .brand span{color:#eeb778}
+.cozy-architecture-page .nav-links{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(10px,1.8vw,28px);list-style:none;margin:0;padding:0}
+.cozy-architecture-page .nav-links a{color:#f5ead8;text-decoration:none;font:600 .91rem system-ui,sans-serif}.cozy-architecture-page .nav-links a[aria-current=page],.cozy-architecture-page .nav-links a:hover{color:#ffc985}
+.cozy-architecture-page .nav-signout{background:#e7ac6d;color:#192939;border:0;border-radius:8px;padding:10px 16px;cursor:pointer;font-weight:700}
+.cozy-architecture-page .architecture-intro{padding:48px 0 25px}.cozy-architecture-page .arch-eyebrow{font:700 .76rem system-ui,sans-serif;letter-spacing:.16em;color:#f1b878;text-transform:uppercase;margin:0 0 9px}
+.cozy-architecture-page h1{font:700 clamp(2.2rem,4.5vw,4.4rem)/1.1 Georgia,serif;color:#fff0d8;margin:0 0 12px}
+.cozy-architecture-page .architecture-intro>p:last-child{color:#e7dfd2;font-size:1.08rem;max-width:780px;line-height:1.6;margin:0}
+.cozy-architecture-page .architecture-explorer{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;align-items:stretch}
+.cozy-architecture-page .map-stage{position:relative;min-width:0;border:3px solid #a97b48;border-radius:16px;overflow:hidden;background:#2c4660;box-shadow:0 14px 42px #050d1b66;align-self:start}
+.cozy-architecture-page .map-art{display:block;width:100%;height:auto;aspect-ratio:1165/645;object-fit:cover}
+.cozy-architecture-page .map-points{position:absolute;inset:0}
+.cozy-architecture-page .map-pin{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:1;border:2px solid #f1c27b;border-radius:8px;background:#0e263eea;color:#fff3de;padding:8px 11px;white-space:nowrap;font:700 clamp(.65rem,1.05vw,.85rem) system-ui,sans-serif;box-shadow:0 3px 12px #000a;cursor:pointer;transition:transform .15s,background .15s}
+.cozy-architecture-page .map-pin:hover,.cozy-architecture-page .map-pin:focus-visible,.cozy-architecture-page .map-pin.is-active{background:#81542c;transform:translate(-50%,-50%) scale(1.07);outline-offset:3px}
+.cozy-architecture-page .service-panel{background:linear-gradient(#fff0d5,#ecd4ad);border:3px solid #bd8850;border-radius:16px;color:#28383d;padding:24px;min-height:480px;box-shadow:0 12px 34px #0004}
+.cozy-architecture-page .panel-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.cozy-architecture-page .panel-top .arch-eyebrow{color:#845124;margin:0}
+.cozy-architecture-page .panel-close{font-size:1.5rem;border:0;background:transparent;color:#4a4034;cursor:pointer;padding:2px 8px}
+.cozy-architecture-page .service-panel h2{font:700 1.75rem Georgia,serif;color:#1b3942;margin:17px 0 3px}.cozy-architecture-page .service-panel h3{font:700 .9rem system-ui,sans-serif;color:#80522d;margin:23px 0 8px;text-transform:uppercase;letter-spacing:.04em}
+.cozy-architecture-page .service-panel p,.cozy-architecture-page .service-panel li{color:#263d47;line-height:1.6;font-size:.98rem}.cozy-architecture-page .service-role{color:#895b32!important;font:700 .86rem system-ui,sans-serif!important;margin:0 0 19px}.cozy-architecture-page .service-summary{font-size:1.07rem!important}
+.cozy-architecture-page .service-panel ul{padding-left:21px}.cozy-architecture-page .service-panel li{margin-bottom:8px}.cozy-architecture-page .empty-state{padding-top:60px;text-align:center}.cozy-architecture-page .empty-icon{font-size:3rem;color:#a7753e}
+.cozy-architecture-page .journey-section{background:#10263a;border:2px solid #98734d;border-radius:15px;padding:26px 30px;margin-top:20px;margin-bottom:45px}.cozy-architecture-page .journey-section h2{font:700 1.75rem Georgia,serif;color:#fff0d8;margin:0 0 8px}.cozy-architecture-page .journey-intro,.cozy-architecture-page .journey-note{color:#e2d9ca;line-height:1.5}
+.cozy-architecture-page .journey-controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.cozy-architecture-page .journey-tab{border:1px solid #ad936f;border-radius:9px;background:#1d364a;color:#f4e7d2;padding:11px 17px;font:700 .9rem system-ui,sans-serif;cursor:pointer}.cozy-architecture-page .journey-tab.is-active{background:#e6b279;color:#1c2a35}
+.cozy-architecture-page .journey-steps{display:flex;align-items:center;flex-wrap:wrap;gap:9px}.cozy-architecture-page .journey-node{display:inline-flex;align-items:center;justify-content:center;border:1px solid #9bafbd;border-radius:9px;background:#1d3a52;color:#fff1d8;padding:11px 14px;font:700 .9rem system-ui,sans-serif}.cozy-architecture-page button.journey-node{cursor:pointer}.cozy-architecture-page button.journey-node:hover{background:#855d35}.cozy-architecture-page .journey-arrow{color:#efbd7d;font-size:1.3rem}
+.cozy-architecture-page .technical-details{margin-top:26px;border-top:1px solid #6e7c7d;padding-top:18px}.cozy-architecture-page .technical-details summary{cursor:pointer;color:#f1c38b;font-weight:700}.cozy-architecture-page .technical-diagram{margin-top:14px;background:#1c3649;border-radius:9px;padding:18px 22px}.cozy-architecture-page .technical-diagram p{color:#eee4d4;line-height:1.6}.cozy-architecture-page .technical-note{font-size:.86rem;font-style:italic}
+.cozy-architecture-page .site-footer{background:#0b1c2c;color:#e8d9c5;border-top:1px solid #70583b;padding:24px 0}
+@media(max-width:900px){.cozy-architecture-page .architecture-explorer{grid-template-columns:1fr}.cozy-architecture-page .service-panel{min-height:240px}.cozy-architecture-page .empty-state{padding-top:20px}.cozy-architecture-page .map-pin{font-size:.69rem;padding:5px 7px}}
+@media(max-width:570px){.cozy-architecture-page .architecture-intro{padding-top:25px}.cozy-architecture-page .map-stage{overflow-x:auto}.cozy-architecture-page .map-art{width:740px;max-width:none}.cozy-architecture-page .map-points{width:740px}.cozy-architecture-page .map-pin{font-size:.76rem}.cozy-architecture-page .journey-section{padding:20px 15px}.cozy-architecture-page .nav{align-items:flex-start;flex-direction:column;padding:12px 0}.cozy-architecture-page .nav-links{gap:11px}.cozy-architecture-page .nav-links a{font-size:.8rem}}
+
+/* V2 — interactive hotspots match the service signs already painted on the map.
+   All coordinates and sizes are percentages of the image, not viewport pixels. */
+.cozy-architecture-page .map-pin {
+  left:var(--x);top:var(--y);width:var(--w);height:var(--h);
+  padding:0;border:2px solid transparent;border-radius:8px;
+  background:transparent;color:transparent;box-shadow:none;
+  font-size:0;cursor:pointer;transform:translate(-50%,-50%);
+  transition:background-color .16s,border-color .16s,box-shadow .16s;
+}
+.cozy-architecture-page .map-pin:hover,
+.cozy-architecture-page .map-pin:focus-visible,
+.cozy-architecture-page .map-pin.is-active {
+  background:rgba(250,198,111,.10);border-color:#ffd38b;
+  box-shadow:0 0 0 2px rgba(20,36,53,.65),0 0 15px rgba(255,202,115,.7);
+  transform:translate(-50%,-50%);outline:none;
+}
+.cozy-architecture-page .map-pin:focus-visible {outline:2px solid #fff4dc;outline-offset:3px}
+.cozy-architecture-page .sr-only {
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+@media(max-width:900px){.cozy-architecture-page .map-pin{padding:0;font-size:0}}
+@media(max-width:570px){.cozy-architecture-page .map-pin{padding:0;font-size:0}}
+
+/* Local development calibration; only visible with ?calibrate=1 */
+.cozy-architecture-page.arch-calibrating .map-pin {
+  border:2px solid #ffe59b !important;background:rgba(245,174,65,.20) !important;
+  box-shadow:0 0 0 1px #172536,0 0 14px #ffc970 !important;
+  cursor:move;transition:none !important;touch-action:none;z-index:3;
+}
+.cozy-architecture-page.arch-calibrating .map-pin::after {
+  content:'';position:absolute;right:-6px;bottom:-6px;width:14px;height:14px;
+  border:2px solid #1a2c3b;border-radius:3px;background:#ffcb78;cursor:nwse-resize;
+}
+.cozy-architecture-page.arch-calibrating .map-pin.is-cal-selected {border-color:#fff !important;background:rgba(255,210,125,.32) !important;z-index:4}
+.cozy-architecture-page.arch-calibrating .map-pin:focus-visible {outline:2px solid #fff;outline-offset:2px}
+.arch-cal-toolbar{position:fixed;right:16px;bottom:16px;z-index:9999;width:min(380px,calc(100vw - 32px));max-height:45vh;overflow:auto;background:#f7e7c9;color:#203747;border:2px solid #a87439;border-radius:12px;padding:14px;box-shadow:0 10px 35px #0009;font:14px/1.4 system-ui,sans-serif}
+.arch-cal-toolbar strong{display:block;font-size:16px}.arch-cal-toolbar p{margin:6px 0 10px}.arch-cal-toolbar select,.arch-cal-toolbar button{font:inherit;padding:7px 9px;border-radius:6px;border:1px solid #7b634b}.arch-cal-toolbar button{background:#17364b;color:#fff0d8;cursor:pointer}.arch-cal-toolbar .arch-cal-actions{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.arch-cal-toolbar output{display:block;font-family:ui-monospace,monospace;font-size:12px;overflow-wrap:anywhere}.arch-cal-toolbar .arch-cal-tip{font-size:12px;color:#4e5657}

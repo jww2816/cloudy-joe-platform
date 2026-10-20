@@ -1,0 +1,57 @@
+/* Cloudy Joe Access V6 — clean unified stage; no incremental overrides. */
+.cozy-access-page{margin:0;min-height:100vh;color:#f3e4c8;font-family:Georgia,"Times New Roman",serif;background:#102438}
+.cozy-access-page *,.cozy-access-page *::before,.cozy-access-page *::after{box-sizing:border-box}
+.cozy-access-page [hidden]{display:none!important}
+.cozy-access-page .site-header{position:absolute;inset:0 0 auto;z-index:5;background:linear-gradient(#091a2cbf,transparent);border:0}
+.cozy-access-page .site-header .nav{max-width:1200px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.cozy-access-page .brand{color:#fff1d6;font-size:1.35rem;font-weight:700;text-decoration:none}
+.cozy-access-page .brand span{color:#edba72}
+.cozy-access-page .access-header-note{font:600 .68rem system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#f3e4c8}
+/* Continuous atmosphere beyond the artwork: not a solid-color rectangular frame. */
+.cozy-access-page .access-layout{min-height:100svh;display:grid;place-items:center;padding:60px 0 24px;overflow:hidden;background:radial-gradient(ellipse 68% 75% at 50% 48%,#2b4860 0%,#1a334b 48%,#102438 88%),linear-gradient(180deg,#132a41,#102438)}
+.cozy-access-page .portal-stage{position:relative;isolation:isolate;width:min(100%,1536px);aspect-ratio:3/2;flex:none}
+/* The artwork is a transparent WEBP with a wide feather at all four edges. */
+.cozy-access-page .portal-stage::before{content:"";position:absolute;inset:0;z-index:-1;background:url("../images/cloudy-joe-access-v6.webp") center/100% 100% no-repeat;pointer-events:none}
+/* Real HTML card intentionally covers the baked-in reference panel. */
+.cozy-access-page .access-card{position:absolute;z-index:2;left:50%;top:51.5%;transform:translate(-50%,-50%);width:27%;max-width:calc(100% - 24px);min-width:0;margin:0;padding:0;background:none;display:block}
+.cozy-access-page .access-card-inner{width:100%;min-height:0;background:#f3e4c8;color:#263c42;border:1px solid #d0b184;border-radius:10px;box-shadow:0 12px 42px #071727a0,inset 0 0 0 5px #faeed9;padding:clamp(18px,2.2vw,34px)}
+.cozy-access-page .access-overline{font-size:.72rem;letter-spacing:.12em;text-align:center;color:#98643b;margin:0 0 18px}
+.cozy-access-page .eyebrow{font:700 .7rem system-ui,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:#946036;margin:0 0 9px}
+.cozy-access-page .access-panel h2{font-size:clamp(1.55rem,2.1vw,2.1rem);line-height:1.1;color:#263c42;margin:0 0 13px}
+.cozy-access-page .access-panel>p:not(.eyebrow):not(.status-message){font-size:.9rem;line-height:1.5;color:#43565a;margin:0 0 12px}
+.cozy-access-page .form-group{margin:15px 0 13px}
+.cozy-access-page label{display:block;font:700 .78rem system-ui,sans-serif;color:#263c42;margin:0 0 6px}
+.cozy-access-page input,.cozy-access-page textarea{display:block;width:100%;min-width:0;background:#fffaf0;color:#263c42;border:1px solid #bca487;border-radius:5px;padding:10px 11px;font:.88rem system-ui,sans-serif}
+.cozy-access-page input:focus-visible,.cozy-access-page textarea:focus-visible{outline:2px solid #42687a;outline-offset:2px}
+.cozy-access-page .form-help{font:.72rem/1.45 system-ui,sans-serif;color:#736a5e;margin:6px 0 0}
+.cozy-access-page .button{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:9px 12px;border-radius:5px;cursor:pointer;font:700 .8rem system-ui,sans-serif;border:1px solid transparent;text-decoration:none}
+.cozy-access-page .button:hover{filter:brightness(1.1)}
+.cozy-access-page .button:focus-visible{outline:3px solid #bd864a;outline-offset:2px}
+.cozy-access-page .button--primary{background:#294b5c;color:#fff1dc;border-color:#17394a}
+.cozy-access-page .button--secondary{background:transparent;color:#294b5c;border-color:#a98862}
+.cozy-access-page #email-form>.button,.cozy-access-page #otp-form>.button,.cozy-access-page #show-request-access{width:100%}
+.cozy-access-page .access-separator{display:flex;align-items:center;gap:9px;color:#8b7054;font:.72rem system-ui,sans-serif;margin:15px 0}
+.cozy-access-page .access-separator::before,.cozy-access-page .access-separator::after{content:"";flex:1;height:1px;background:#d5be9b}
+.cozy-access-page .button-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.cozy-access-page .button-group .button{flex:1 1 100px}
+.cozy-access-page .status-message{color:#80512b;font:.76rem/1.4 system-ui,sans-serif;overflow-wrap:anywhere}
+.cozy-access-page .status-message:empty{display:none}
+.cozy-access-page .access-footnote{color:#826e57;font:italic .7rem Georgia,serif;text-align:center;margin:18px 0 0}
+/* Taller interactive forms expand naturally; artwork stays centered behind them. */
+.cozy-access-page .portal-stage:has(#request-access-panel:not([hidden])){min-height:950px;aspect-ratio:auto}
+.cozy-access-page .portal-stage:has(#request-access-panel:not([hidden]))::before{background-size:cover}
+@media(max-width:1100px){
+ .cozy-access-page .portal-stage{width:100%;min-height:750px;aspect-ratio:auto}
+ .cozy-access-page .portal-stage::before{background-size:auto 100%}
+ .cozy-access-page .access-card{width:min(380px,78%);top:52%}
+}
+@media(max-width:600px){
+ .cozy-access-page .access-header-note{display:none}
+ .cozy-access-page .access-layout{padding:65px 0 12px;align-items:start}
+ .cozy-access-page .portal-stage{min-height:720px}
+ .cozy-access-page .portal-stage::before{background-size:auto 100%;background-position:center}
+ .cozy-access-page .access-card{width:min(350px,88%);top:51%}
+ .cozy-access-page .access-card-inner{padding:22px}
+ .cozy-access-page .portal-stage:has(#request-access-panel:not([hidden])){min-height:980px}
+}
+@media(prefers-reduced-motion:reduce){.cozy-access-page *{scroll-behavior:auto!important}}

@@ -2,302 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Professional resume for the Cloudy Joe engineering portfolio."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joseph Wilson's professional experience, technical skills, and certifications.">
   <title>Resume | Cloudy Joe</title>
-
-  <link
-    rel="stylesheet"
-    href="assets/css/styles.css"
-  >
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/cozy-resume.css">
+  <script src="../assets/js/session.js" defer></script>
+<link rel="stylesheet" href="../assets/css/cozy-shared.css?v=1">
 </head>
-
-<body>
-
+<body class="cozy-resume-page">
   <header class="site-header">
-
     <div class="container nav">
-
-      <a class="brand" href="index.html">
-        Cloudy<span>Joe</span>
-      </a>
-
+      <a class="brand" href="index.html">Cloudy<span>Joe</span></a>
       <nav aria-label="Primary navigation">
         <ul class="nav-links">
-
           <li><a href="index.html">Home</a></li>
-          <li><a href="resume.html">Resume</a></li>
+          <li><a href="resume.html" aria-current="page">Resume</a></li>
           <li><a href="architecture.html">Architecture</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="lessons.html">Lessons Learned</a></li>
-
-          <button
-              id="sign-out-button"
-              class="nav-signout"
-              type="button"
-          >
-              Sign Out
-          </button>
-          <script src="assets/js/session.js"></script> 
-
-
+          <li><button id="sign-out-button" class="nav-signout" type="button">Sign Out</button></li>
         </ul>
       </nav>
-
     </div>
-
   </header>
 
-
   <main>
-
-    <section class="page-section">
-
-      <div class="container resume-header">
-
-        <div>
-
-          <p class="eyebrow">
-            Professional Profile
-          </p>
-
-          <h1>
-            Joseph Wilson
-          </h1>
-
-          <p class="lead">
-            Software Support Engineer II with experience troubleshooting
-            complex software environments across applications, networking,
-            authentication, licensing, permissions, and infrastructure.
-          </p>
-
+    <section class="resume-hero" aria-labelledby="resume-title">
+      <div class="container resume-hero-inner">
+        <p class="eyebrow">THE CLOUD VILLAGE / PROFESSIONAL PROFILE</p>
+        <h1 id="resume-title">Joseph Wilson</h1>
+        <p class="resume-role">Software Support Engineer II</p>
+        <p class="resume-intro">Supporting complex enterprise software, investigating difficult technical issues, and building practical cloud engineering skills.</p>
+        <div class="resume-hero-actions">
+          <a class="button button--primary" href="#experience">Explore Experience ↓</a>
+          <a class="button button--secondary" href="#skills">Technical Skills ↓</a>
         </div>
-
-
-        <div class="resume-actions">
-
-          <button
-            class="button button--primary"
-            type="button"
-            disabled
-          >
-            Download PDF — Coming Soon
-          </button>
-
-          <button
-            class="button button--secondary"
-            type="button"
-            disabled
-          >
-            Generate Tailored View — Coming Soon
-          </button>
-
-        </div>
-
       </div>
-
     </section>
 
+    <section class="resume-content" aria-label="Professional resume">
+      <div class="container resume-paper">
+        <div class="resume-paper-heading">
+          <div>
+            <p class="eyebrow">THE ENGINEER'S JOURNAL</p>
+            <h2>Experience & expertise</h2>
+          </div>
+          <p>Practical support experience, technical investigation, and a growing cloud engineering toolkit.</p>
+        </div>
 
-    <section class="page-section page-section--compact">
-
-      <div class="container resume-layout">
-
-        <aside class="resume-sidebar">
-
-          <section class="resume-block">
-
-            <p class="eyebrow">
-              Core Skills
-            </p>
-
-            <ul class="skill-list">
-              <li>AWS</li>
-              <li>Windows Administration</li>
-              <li>Linux Fundamentals</li>
-              <li>Networking</li>
-              <li>SQL</li>
-              <li>PowerShell</li>
-              <li>Authentication & Permissions</li>
-              <li>Incident Management</li>
-              <li>Root Cause Analysis</li>
-              <li>Technical Documentation</li>
-            </ul>
-
-          </section>
-
-
-          <section class="resume-block">
-
-            <p class="eyebrow">
-              Certifications
-            </p>
-
-            <ul class="simple-list">
-              <li>AWS Certified Cloud Practitioner</li>
-              <li>CompTIA A+</li>
-              <li>CompTIA Security+</li>
-              <li>CompTIA Network+</li>
-              <li>CompTIA Project+</li>
-              <li>ITIL Foundation</li>
-              <li>LPI Linux Essentials</li>
-            </ul>
-
-          </section>
-
-
-          <section class="resume-block">
-
-            <p class="eyebrow">
-              Education
-            </p>
-
-            <p>
-              Bachelor of Science in Information Technology
-            </p>
-
-          </section>
-
-        </aside>
-
-
-        <div class="resume-main">
-
-          <section class="resume-block">
-
-            <p class="eyebrow">
-              Experience
-            </p>
-
-            <article class="experience-item">
-
-              <div class="experience-heading">
-
-                <div>
-                  <h2>
-                    Software Support Engineer II
-                  </h2>
-
-                  <p class="experience-company">
-                    TRUMPF
-                  </p>
-                </div>
-
-                <span class="experience-date">
-                  Current
-                </span>
-
-              </div>
-
-              <ul>
-                <li>
-                  Troubleshoot complex client/server software environments
-                  involving Windows systems, SQL databases, services,
-                  networking, authentication, licensing, and permissions.
-                </li>
-
-                <li>
-                  Investigate application behavior using logs, system
-                  configuration, service status, connectivity testing,
-                  and root cause analysis.
-                </li>
-
-                <li>
-                  Support enterprise customers through technical incidents,
-                  escalations, and software configuration issues.
-                </li>
-
-                <li>
-                  Collaborate with engineering and product teams to identify
-                  defects, document findings, and communicate technical
-                  resolutions.
-                </li>
-
-                <li>
-                  Create and maintain technical documentation and reusable
-                  troubleshooting knowledge.
-                </li>
+        <div class="resume-columns">
+          <aside class="resume-aside" id="skills">
+            <section class="resume-panel">
+              <h3>Core Skills</h3>
+              <ul class="resume-tags">
+                <li>Windows Administration</li><li>Linux Fundamentals</li><li>Networking</li><li>SQL</li>
+                <li>PowerShell</li><li>Authentication & Permissions</li><li>Incident Management</li>
+                <li>Root Cause Analysis</li><li>Technical Documentation</li>
               </ul>
+            </section>
+            <section class="resume-panel">
+              <h3>Cloud & Learning</h3>
+              <ul class="resume-tags resume-tags--green">
+                <li>AWS</li><li>Serverless</li><li>Cloud Security</li><li>Infrastructure Automation</li>
+                <li>Containers (Learning)</li><li>Kubernetes (Learning)</li>
+              </ul>
+            </section>
+            <section class="resume-panel">
+              <h3>Certifications</h3>
+              <ul class="resume-list">
+                <li>AWS Certified Cloud Practitioner</li><li>CompTIA A+</li><li>CompTIA Security+</li>
+                <li>CompTIA Network+</li><li>CompTIA Project+</li><li>ITIL Foundation</li>
+                <li>LPI Linux Essentials</li>
+              </ul>
+            </section>
+            <section class="resume-panel">
+              <h3>Education</h3>
+              <p>Bachelor of Science in Information Technology</p>
+            </section>
+          </aside>
 
-            </article>
-
-          </section>
-
-
-          <section class="resume-block">
-
-            <p class="eyebrow">
-              Engineering Focus
-            </p>
-
-            <div class="grid grid--3">
-
-              <article class="card">
-                <h3>
-                  Cloud
-                </h3>
-
-                <p>
-                  AWS architecture, identity, networking, serverless
-                  services, observability, and infrastructure automation.
-                </p>
-              </article>
-
-
-              <article class="card">
-                <h3>
-                  Infrastructure
-                </h3>
-
-                <p>
-                  Linux, Windows, permissions, services, networking,
-                  scripting, and operational troubleshooting.
-                </p>
-              </article>
-
-
-              <article class="card">
-                <h3>
-                  Platform Engineering
-                </h3>
-
-                <p>
-                  Building toward containerized services, CI/CD,
-                  Kubernetes, and secure cloud-native application delivery.
-                </p>
-              </article>
-
-            </div>
-
-          </section>
-
+          <div class="resume-primary" id="experience">
+            <section class="resume-panel resume-panel--main">
+              <p class="eyebrow">PROFESSIONAL EXPERIENCE</p>
+              <div class="experience-heading">
+                <div><h3>Software Support Engineer II</h3><p class="resume-employer">TRUMPF</p></div>
+                <span class="resume-date">Current</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Troubleshoot complex client/server software environments involving Windows systems, SQL databases, services, networking, authentication, licensing, and permissions.</li>
+                <li>Investigate application behavior using logs, system configuration, service status, connectivity testing, and root cause analysis.</li>
+                <li>Support enterprise customers through technical incidents, escalations, and software configuration issues.</li>
+                <li>Collaborate with engineering and product teams to identify defects, document findings, and communicate technical resolutions.</li>
+                <li>Create and maintain technical documentation and reusable troubleshooting knowledge.</li>
+              </ul>
+            </section>
+            <section class="resume-panel resume-panel--main">
+              <p class="eyebrow">ENGINEERING FOCUS</p>
+              <h3>Where support meets engineering</h3>
+              <div class="resume-focus-grid">
+                <article><span aria-hidden="true">☁</span><h4>Cloud</h4><p>AWS architecture, identity, networking, serverless services, observability, and infrastructure automation.</p></article>
+                <article><span aria-hidden="true">⚙</span><h4>Infrastructure</h4><p>Linux, Windows, permissions, services, networking, scripting, and operational troubleshooting.</p></article>
+                <article><span aria-hidden="true">⌘</span><h4>Platform Engineering</h4><p>Building toward containerized services, CI/CD, Kubernetes, and secure cloud-native application delivery.</p></article>
+              </div>
+            </section>
+            <section class="resume-panel resume-next">
+              <h3>Explore the architecture behind Cloudy Joe</h3>
+              <p>This portfolio is also a working AWS project. See how its infrastructure, access management, and application services fit together.</p>
+              <a class="button button--primary" href="architecture.html">Explore Architecture →</a>
+            </section>
+          </div>
         </div>
-
       </div>
-
     </section>
-
   </main>
-
-
-  <footer class="site-footer">
-
-    <div class="container">
-      Cloudy Joe Engineering Portfolio
-    </div>
-
-  </footer>
-
-  <script src="assets/js/app.js"></script>
-
+  <footer class="site-footer"><div class="container">Cloudy Joe Engineering Portfolio</div></footer>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
